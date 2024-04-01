@@ -53,7 +53,7 @@ variable "client_secret" {
 
 variable "image_version" {
   type    = string
-  default = "dev"
+  default = "0.0.1"
 }
 
 variable "install_password" {
@@ -130,11 +130,19 @@ source "azure-arm" "build_image" {
   // Base image
   image_offer     = "0001-com-ubuntu-server-jammy"
   image_publisher = "canonical"
-  image_sku       = "22_04-lts"
+  image_sku       = "22_04-lts-arm64"
 
   // Target location
-  managed_image_name = "${local.managed_image_name}"
-  managed_image_resource_group_name = "${var.managed_image_resource_group_name}"
+#  managed_image_name = "${local.managed_image_name}"
+#  managed_image_resource_group_name = "${var.managed_image_resource_group_name}"
+
+  shared_image_gallery_destination {
+    subscription = "${var.subscription_id}"
+    resource_group = "${var.managed_image_resource_group_name}"
+    gallery_name = "gallery"
+    image_name = "gh_minimal_arm"
+    image_version = "0.0.1"
+  }
 
   // Resource group for VM
   build_resource_group_name = "${var.build_resource_group_name}"
