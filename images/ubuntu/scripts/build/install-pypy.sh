@@ -81,7 +81,7 @@ for toolset_version in $toolset_versions; do
     latest_major_pypy_version=$(echo $pypy_versions_json |
         jq -r --arg toolset_version $toolset_version '.[]
         | select((.python_version | startswith($toolset_version)) and .stable == true).files[]
-        | select(.arch == "x64" and .platform == "linux").download_url' | head -1)
+        | select(.arch == "aarch64" and .platform == "linux").download_url' | head -1)
     if [[ -z "$latest_major_pypy_version" ]]; then
         echo "Failed to get PyPy version '$toolset_version'"
         exit 1

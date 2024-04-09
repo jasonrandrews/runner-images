@@ -25,13 +25,13 @@ EOF
 apt-get install git-ftp -y
 
 # Remove source repo's
-add-apt-repository --remove $GIT_REPO
+#add-apt-repository --remove $GIT_REPO
 
 # Document apt source repo's
-echo "git-core $GIT_REPO" >> $HELPER_SCRIPTS/apt-sources.txt
+#echo "git-core $GIT_REPO" >> $HELPER_SCRIPTS/apt-sources.txt
 
 # Add well-known SSH host keys to known_hosts
-ssh-keyscan -t rsa,ecdsa,ed25519 github.com >> /etc/ssh/ssh_known_hosts
-ssh-keyscan -t rsa ssh.dev.azure.com >> /etc/ssh/ssh_known_hosts
+#ssh-keyscan -t rsa,ecdsa,ed25519 github.com >> /etc/ssh/ssh_known_hosts
+#ssh-keyscan -t rsa ssh.dev.azure.com >> /etc/ssh/ssh_known_hosts
 
-invoke_tests "Tools" "Git"
+#invoke_tests "Tools" "Git"

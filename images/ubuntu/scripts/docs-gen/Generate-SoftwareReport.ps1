@@ -55,13 +55,13 @@ $languageAndRuntime.AddToolVersion("Node.js", $(Get-NodeVersion))
 $languageAndRuntime.AddToolVersion("Perl", $(Get-PerlVersion))
 $languageAndRuntime.AddToolVersion("Python", $(Get-PythonVersion))
 $languageAndRuntime.AddToolVersion("Ruby", $(Get-RubyVersion))
-$languageAndRuntime.AddToolVersion("Swift", $(Get-SwiftVersion))
+#$languageAndRuntime.AddToolVersion("Swift", $(Get-SwiftVersion))
 
 # Package Management
 $packageManagement = $installedSoftware.AddHeader("Package Management")
 $packageManagement.AddToolVersion("cpan", $(Get-CpanVersion))
 $packageManagement.AddToolVersion("Helm", $(Get-HelmVersion))
-$packageManagement.AddToolVersion("Homebrew", $(Get-HomebrewVersion))
+#$packageManagement.AddToolVersion("Homebrew", $(Get-HomebrewVersion))
 $packageManagement.AddToolVersion("Miniconda", $(Get-MinicondaVersion))
 $packageManagement.AddToolVersion("Npm", $(Get-NpmVersion))
 $packageManagement.AddToolVersion("NuGet", $(Get-NuGetVersion))
@@ -72,12 +72,12 @@ $packageManagement.AddToolVersion("RubyGems", $(Get-GemVersion))
 $packageManagement.AddToolVersion("Vcpkg", $(Get-VcpkgVersion))
 $packageManagement.AddToolVersion("Yarn", $(Get-YarnVersion))
 $packageManagement.AddHeader("Environment variables").AddTable($(Build-PackageManagementEnvironmentTable))
-$packageManagement.AddHeader("Homebrew note").AddNote(@'
-Location: /home/linuxbrew
-Note: Homebrew is pre-installed on image but not added to PATH.
-run the eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" command
-to accomplish this.
-'@)
+#$packageManagement.AddHeader("Homebrew note").AddNote(@'
+#Location: /home/linuxbrew
+#Note: Homebrew is pre-installed on image but not added to PATH.
+#run the eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" command
+#to accomplish this.
+#'@)
 
 # Project Management
 $projectManagement = $installedSoftware.AddHeader("Project Management")

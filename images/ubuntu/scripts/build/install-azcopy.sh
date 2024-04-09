@@ -8,7 +8,7 @@
 source $HELPER_SCRIPTS/install.sh
 
 # Install AzCopy10
-archive_path=$(download_with_retry "https://aka.ms/downloadazcopy-v10-linux")
+archive_path=$(download_with_retry "https://aka.ms/downloadazcopy-v10-linux-arm64")
 tar xzf "$archive_path" --strip-components=1 -C /tmp
 install /tmp/azcopy /usr/local/bin/azcopy
 

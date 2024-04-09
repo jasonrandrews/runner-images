@@ -10,11 +10,11 @@ source $HELPER_SCRIPTS/install.sh
 
 # Dowload Pulumi
 version=$(curl -fsSL "https://www.pulumi.com/latest-version")
-download_url="https://get.pulumi.com/releases/sdk/pulumi-v${version}-linux-x64.tar.gz"
+download_url="https://get.pulumi.com/releases/sdk/pulumi-v${version}-linux-arm64.tar.gz"
 archive_path=$(download_with_retry "$download_url")
 
 # Supply chain security - Pulumi
-external_hash=$(get_checksum_from_url "https://github.com/pulumi/pulumi/releases/download/v${version}/SHA512SUMS" "linux-x64.tar.gz" "SHA512")
+external_hash=$(get_checksum_from_url "https://github.com/pulumi/pulumi/releases/download/v${version}/SHA512SUMS" "linux-arm64.tar.gz" "SHA512")
 use_checksum_comparison "$archive_path" "$external_hash" "512"
 
 # Unzipping Pulumi

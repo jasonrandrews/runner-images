@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/etc-environment.sh
 
+# no arm64 support
+exit 0
+
 # Set env variable for vcpkg
 VCPKG_INSTALLATION_ROOT=/usr/local/share/vcpkg
 set_etc_environment_variable "VCPKG_INSTALLATION_ROOT" "${VCPKG_INSTALLATION_ROOT}"

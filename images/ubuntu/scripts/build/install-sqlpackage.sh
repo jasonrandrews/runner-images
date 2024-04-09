@@ -8,6 +8,9 @@
 source $HELPER_SCRIPTS/install.sh
 source $HELPER_SCRIPTS/os.sh
 
+# no arm64 support
+exit 0
+
 # Install libssl1.1 dependency
 if is_ubuntu22; then
     focal_list=/etc/apt/sources.list.d/focal-security.list

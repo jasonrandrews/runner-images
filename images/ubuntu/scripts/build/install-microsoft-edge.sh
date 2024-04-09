@@ -8,6 +8,9 @@
 source $HELPER_SCRIPTS/install.sh
 source $HELPER_SCRIPTS/etc-environment.sh
 
+# no arm64 support
+exit 0
+
 REPO_URL="https://packages.microsoft.com/repos/edge"
 GPG_KEY="/usr/share/keyrings/microsoft-edge.gpg"
 REPO_PATH="/etc/apt/sources.list.d/microsoft-edge.list"

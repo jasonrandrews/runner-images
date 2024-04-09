@@ -8,6 +8,9 @@
 source $HELPER_SCRIPTS/install.sh
 source $HELPER_SCRIPTS/etc-environment.sh
 
+# no arm64 support
+exit 0
+
 get_chromium_revision() {
     local chrome_revision=$1
 

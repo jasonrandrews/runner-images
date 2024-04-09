@@ -9,6 +9,9 @@ source $HELPER_SCRIPTS/os.sh
 source $HELPER_SCRIPTS/install.sh
 source $HELPER_SCRIPTS/etc-environment.sh
 
+# no arm64 support
+exit 0
+
 add_filtered_installation_components() {
     local minimum_version=$1
     shift

@@ -8,7 +8,7 @@
 source $HELPER_SCRIPTS/install.sh
 
 # Install Bicep CLI
-download_url=$(resolve_github_release_asset_url "Azure/bicep" "endswith(\"bicep-linux-x64\")" "latest")
+download_url=$(resolve_github_release_asset_url "Azure/bicep" "endswith(\"bicep-linux-arm64\")" "latest")
 bicep_binary_path=$(download_with_retry "${download_url}")
 
 # Mark it as executable

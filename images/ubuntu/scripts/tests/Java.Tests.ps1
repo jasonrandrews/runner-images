@@ -27,7 +27,7 @@ Describe "Java" {
         "gradle -version" | Should -ReturnZeroExitCode
 
         $gradleVariableValue = [System.Environment]::GetEnvironmentVariable("GRADLE_HOME")
-        $gradleVariableValue | Should -BeLike "/usr/share/gradle-*"
+        $gradleVariableValue | Should -BeLike "/usr/share/gradle"
 
         $gradlePath = Join-Path $env:GRADLE_HOME "bin/gradle"
         "`"$GradlePath`" -version" | Should -ReturnZeroExitCode

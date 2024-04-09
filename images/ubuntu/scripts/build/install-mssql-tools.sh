@@ -6,6 +6,9 @@
 
 export ACCEPT_EULA=Y
 
+# no arm64 support
+exit 0
+
 apt-get update
 apt-get install -y mssql-tools unixodbc-dev
 apt-get -f install

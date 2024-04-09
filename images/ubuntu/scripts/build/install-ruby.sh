@@ -10,6 +10,9 @@ source $HELPER_SCRIPTS/install.sh
 
 apt-get install ruby-full
 
+# no arm64 support
+exit 0
+
 # Install ruby gems from toolset
 gems_to_install=$(get_toolset_value ".rubygems[] .name")
 if [[ -n "$gems_to_install" ]]; then

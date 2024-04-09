@@ -72,6 +72,11 @@ variable "managed_image_name" {
   default = ""
 }
 
+variable "managed_image_gallery_name" {
+  type    = string
+  default = ""
+}
+
 variable "managed_image_resource_group_name" {
   type    = string
   default = "${env("ARM_RESOURCE_GROUP")}"
@@ -139,9 +144,9 @@ source "azure-arm" "build_image" {
   shared_image_gallery_destination {
     subscription = "${var.subscription_id}"
     resource_group = "${var.managed_image_resource_group_name}"
-    gallery_name = "gallery"
-    image_name = "gh_minimal_arm"
-    image_version = "0.0.1"
+    gallery_name = "${var.managed_image_gallery_name}"
+    image_name = "${local.managed_image_name}"
+    image_version = "${var.image_version}"
   }
 
   // Resource group for VM
