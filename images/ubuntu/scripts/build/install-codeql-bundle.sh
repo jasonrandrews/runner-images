@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/install.sh
 
+# no arm64 support
+exit 0
+
 # Retrieve the CLI version of the latest CodeQL bundle.
 base_url="$(curl -fsSL https://raw.githubusercontent.com/github/codeql-action/v2/src/defaults.json)"
 bundle_version="$(echo "$base_url" | jq -r '.cliVersion')"

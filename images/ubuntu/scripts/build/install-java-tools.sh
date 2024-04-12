@@ -88,12 +88,13 @@ apt-get install -y --no-install-recommends ant ant-optional
 set_etc_environment_variable "ANT_HOME" "/usr/share/ant"
 
 # Install Maven
-#mavenVersion=$(get_toolset_value '.java.maven')
-#mavenDownloadUrl="https://dlcdn.apache.org/maven/maven-3/${mavenVersion}/binaries/apache-maven-${mavenVersion}-bin.zip"
-#maven_archive_path=$(download_with_retry "$mavenDownloadUrl")
-#unzip -qq -d /usr/share "$maven_archive_path"
-#ln -s /usr/share/apache-maven-${mavenVersion}/bin/mvn /usr/bin/mvn
-apt-get install -y maven
+mavenVersion=$(get_toolset_value '.java.maven')
+mavenDownloadUrl="https://dlcdn.apache.org/maven/maven-3/${mavenVersion}/binaries/apache-maven-${mavenVersion}-bin.zip"
+maven_archive_path=$(download_with_retry "$mavenDownloadUrl")
+unzip "$maven_archive_path"
+cp -r apache-maven-${mavenVersion} /usr/share
+ln -s /usr/share/apache-maven-${mavenVersion}/bin/mvn /usr/bin/mvn
+#apt-get install -y maven
 
 # Install Gradle
 apt-get install -y gradle

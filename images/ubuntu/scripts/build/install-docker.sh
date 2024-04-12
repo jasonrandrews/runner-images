@@ -90,6 +90,10 @@ use_checksum_comparison "$aws_helper_binary_path" "$aws_helper_external_hash"
 # Install amazon-ecr-credential-helper
 install "$aws_helper_binary_path" "/usr/bin/docker-credential-ecr-login"
 
+# allow user runner to run docker without sudo
+useradd -m runner
+usermod -aG docker runner
+
 # Cleanup custom repositories
 rm $GPG_KEY
 rm $REPO_PATH
