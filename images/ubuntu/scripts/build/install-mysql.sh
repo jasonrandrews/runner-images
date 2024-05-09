@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/os.sh
 
+# lower priority, not installing
+exit 0
+
 # Mysql setting up root password
 MYSQL_ROOT_PASSWORD=root
 echo "mysql-server mysql-server/root_password password $MYSQL_ROOT_PASSWORD" | debconf-set-selections

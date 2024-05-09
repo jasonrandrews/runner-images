@@ -8,6 +8,9 @@ REPO_URL="https://cli-assets.heroku.com/channels/stable/apt"
 GPG_KEY="/usr/share/keyrings/heroku.gpg"
 REPO_PATH="/etc/apt/sources.list.d/heroku.list"
 
+# lower priority, not installing
+exit 0
+
 # add heroku repository to apt
 curl -fsSL "${REPO_URL}/release.key" | gpg --dearmor -o $GPG_KEY
 echo "deb [signed-by=$GPG_KEY] $REPO_URL ./" > $REPO_PATH

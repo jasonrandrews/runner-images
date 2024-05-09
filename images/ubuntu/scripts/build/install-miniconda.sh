@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/etc-environment.sh
 
+# lower priority, not installing
+exit 0
+
 # Install Miniconda
 curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh -o miniconda.sh \
     && chmod +x miniconda.sh \

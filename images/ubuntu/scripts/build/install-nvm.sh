@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/etc-environment.sh
 
+# lower priority, not installing
+exit 0
+
 export NVM_DIR="/etc/skel/.nvm"
 mkdir $NVM_DIR
 nvm_version=$(curl -fsSL https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r '.tag_name')

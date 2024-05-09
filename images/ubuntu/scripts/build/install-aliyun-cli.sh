@@ -9,6 +9,9 @@
 source $HELPER_SCRIPTS/os.sh
 source $HELPER_SCRIPTS/install.sh
 
+# lower priority, not installing
+exit 0
+
 # Install Alibaba Cloud CLI
 # Pin tool version on ubuntu20 due to issues with GLIBC_2.32 not available
 if is_ubuntu20; then

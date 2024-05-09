@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/etc-environment.sh
 
+# lower priority, not installing
+exit 0
+
 # Any nonzero value for non-interactive installation
 export BOOTSTRAP_HASKELL_NONINTERACTIVE=1
 export BOOTSTRAP_HASKELL_INSTALL_NO_STACK_HOOK=1

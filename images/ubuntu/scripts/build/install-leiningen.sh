@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/etc-environment.sh
 
+# lower priority, not installing
+exit 0
+
 LEIN_BIN=/usr/local/bin/lein
 curl -fsSL https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein > $LEIN_BIN
 chmod 0755 $LEIN_BIN

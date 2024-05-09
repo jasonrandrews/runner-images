@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/install.sh
 
+# lower priority, not installing
+exit 0
+
 # get the latest julia version
 json=$(curl -fsSL "https://julialang-s3.julialang.org/bin/versions.json")
 julia_version=$(echo $json | jq -r '.[].files[] | select(.triplet=="aarch64-linux-gnu" and (.version | contains("-") | not)).version' | sort -V | tail -n1)

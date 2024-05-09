@@ -8,6 +8,9 @@
 source $HELPER_SCRIPTS/os.sh
 source $HELPER_SCRIPTS/install.sh
 
+# lower priority, not installing
+exit 0
+
 REPO_URL="https://apt.postgresql.org/pub/repos/apt/"
 
 # Preparing repo for PostgreSQL

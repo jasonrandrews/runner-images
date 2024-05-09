@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/install.sh
 
+# lower priority, not installing
+exit 0
+
 # Install Bicep CLI
 download_url=$(resolve_github_release_asset_url "Azure/bicep" "endswith(\"bicep-linux-arm64\")" "latest")
 bicep_binary_path=$(download_with_retry "${download_url}")

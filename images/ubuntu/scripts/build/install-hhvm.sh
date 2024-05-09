@@ -8,6 +8,9 @@ REPO_URL="https://dl.hhvm.com/ubuntu"
 GPG_KEY="/usr/share/keyrings/hhvm.gpg"
 REPO_PATH="/etc/apt/sources.list.d/hhvm.list"
 
+# lower priority, not installing
+exit 0
+
 # add HHVM repository to apt
 curl -fsSL https://dl.hhvm.com/conf/hhvm.gpg.key | gpg --dearmor -o $GPG_KEY
 echo "deb [signed-by=$GPG_KEY] $REPO_URL $(lsb_release -cs) main" > $REPO_PATH

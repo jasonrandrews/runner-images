@@ -8,6 +8,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/install.sh
 
+# lower priority, not installing
+exit 0
+
 # Determine latest ORAS CLI version
 download_url=$(resolve_github_release_asset_url "oras-project/oras" "endswith(\"linux_arm64.tar.gz\")" "latest")
 
