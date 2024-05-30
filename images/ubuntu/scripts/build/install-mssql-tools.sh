@@ -10,7 +10,7 @@ export ACCEPT_EULA=Y
 exit 0
 
 apt-get update
-apt-get install -y mssql-tools unixodbc-dev
+apt-get install mssql-tools unixodbc-dev
 apt-get -f install
 ln -s /opt/mssql-tools/bin/* /usr/local/bin/
 

@@ -1,3 +1,4 @@
+Import-Module "$PSScriptRoot/../helpers/Common.Helpers.psm1"
 Describe "azcopy" {
     It "azcopy" {
         "azcopy --version" | Should -ReturnZeroExitCode
@@ -36,18 +37,18 @@ Describe "Rust" {
     It "Rustfmt is installed" {
         "rustfmt --version" | Should -ReturnZeroExitCode
     }
+    
+    It "cargo" {
+        "cargo --version" | Should -ReturnZeroExitCode
+    }
 
-    Context "Cargo dependencies" {
+    Context "Cargo dependencies" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
         It "bindgen" {
             "bindgen --version" | Should -ReturnZeroExitCode
         }
 
         It "cbindgen" {
             "cbindgen --version" | Should -ReturnZeroExitCode
-        }
-
-        It "cargo" {
-            "cargo --version" | Should -ReturnZeroExitCode
         }
 
         It "cargo-clippy" {
@@ -68,10 +69,25 @@ Describe "Docker" {
     It "docker client" {
         $version=(Get-ToolsetContent).docker.components | Where-Object { $_.package -eq 'docker-ce-cli' } | Select-Object -ExpandProperty version
         If ($version -ne "latest") {
-            $(docker version --format '{{.Client.Version}}') | Should -BeLike "*$version*"
+            $(sudo docker version --format '{{.Client.Version}}') | Should -BeLike "*$version*"
         }else{
-            "docker version --format '{{.Client.Version}}'" | Should -ReturnZeroExitCode
+            "sudo docker version --format '{{.Client.Version}}'" | Should -ReturnZeroExitCode
         }
+    }
+
+    It "docker server" {
+        $version=(Get-ToolsetContent).docker.components | Where-Object { $_.package -eq 'docker-ce' } | Select-Object -ExpandProperty version
+        If ($version -ne "latest") {
+            $(sudo docker version --format '{{.Server.Version}}') | Should -BeLike "*$version*"
+        }else{
+            "sudo docker version --format '{{.Server.Version}}'" | Should -ReturnZeroExitCode
+        }
+    }
+
+    It "docker client/server versions match" {
+        $clientVersion = $(sudo docker version --format '{{.Client.Version}}')
+        $serverVersion = $(sudo docker version --format '{{.Server.Version}}')
+        $clientVersion | Should -Be $serverVersion
     }
 
     It "docker buildx" {
@@ -83,7 +99,7 @@ Describe "Docker" {
         }
     }
 
-    It "Docker compose v2" {
+    It "docker compose v2" {
         $version=(Get-ToolsetContent).docker.plugins | Where-Object { $_.plugin -eq 'compose' } | Select-Object -ExpandProperty version
         If ($version -ne "latest") {
             $(docker compose version --short) | Should -BeLike "*$version*"
@@ -102,6 +118,12 @@ Describe "Docker images" {
 
     It "<ImageName>" -TestCases $testCases {
        sudo docker images "$ImageName" --format "{{.Repository}}" | Should -Not -BeNullOrEmpty
+    }
+}
+
+Describe "Docker-compose v1" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
+    It "docker-compose" {
+        "docker-compose --version"| Should -ReturnZeroExitCode
     }
 }
 
@@ -138,7 +160,7 @@ Describe "Cmake" {
     }
 }
 
-Describe "erlang" -Skip:(Test-IsUbuntu22) {
+Describe "erlang" -Skip:(-not (Test-IsUbuntu20)) {
     $testCases = @("erl -version", "erlc -v", "rebar3 -v") | ForEach-Object { @{ErlangCommand = $_} }
 
     It "erlang <ErlangCommand>" -TestCases $testCases {
@@ -162,7 +184,7 @@ Describe "gfortran" {
     }
 }
 
-Describe "Mono" {
+Describe "Mono" -Skip:(Test-IsUbuntu24) {
     It "mono" {
         "mono --version" | Should -ReturnZeroExitCode
     }
@@ -176,25 +198,25 @@ Describe "Mono" {
     }
 }
 
-Describe "MSSQLCommandLineTools" {
+Describe "MSSQLCommandLineTools" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "sqlcmd" {
         "sqlcmd -?" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "SqlPackage" {
+Describe "SqlPackage" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "sqlpackage" {
         "sqlpackage /version" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "R" {
+Describe "R" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "r" {
         "R --version" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "Sbt" {
+Describe "Sbt" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "sbt" {
         "sbt --version" | Should -ReturnZeroExitCode
     }
@@ -207,7 +229,7 @@ Describe "Selenium" {
     }
 }
 
-Describe "Terraform" {
+Describe "Terraform" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "terraform" {
         "terraform --version" | Should -ReturnZeroExitCode
     }
@@ -237,6 +259,10 @@ Describe "Git" {
     It "git-ftp" {
         "git-ftp --version" | Should -ReturnZeroExitCode
     }
+
+    It "GIT_CLONE_PROTECTION_ACTIVE environment variable should be equal false" {
+        $env:GIT_CLONE_PROTECTION_ACTIVE | Should -BeExactly false
+    }
 }
 
 Describe "Git-lfs" {
@@ -245,13 +271,13 @@ Describe "Git-lfs" {
     }
 }
 
-Describe "Heroku" {
+Describe "Heroku" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "heroku" {
         "heroku --version" | Should -ReturnZeroExitCode
     }
 }
 
-Describe "HHVM" -Skip:(Test-IsUbuntu22) {
+Describe "HHVM" -Skip:(-not (Test-IsUbuntu20)) {
     It "hhvm" {
         "hhvm --version" | Should -ReturnZeroExitCode
     }
@@ -291,7 +317,7 @@ Describe "Kubernetes tools" {
     }
 }
 
-Describe "Leiningen" {
+Describe "Leiningen" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "leiningen" {
         "lein --version" | Should -ReturnZeroExitCode
     }
@@ -303,7 +329,7 @@ Describe "Conda" {
     }
 }
 
-Describe "Packer" {
+Describe "Packer" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "packer" {
         "packer --version" | Should -ReturnZeroExitCode
     }
@@ -315,7 +341,7 @@ Describe "Pulumi" {
     }
 }
 
-Describe "Phantomjs" -Skip:(Test-IsUbuntu22) {
+Describe "Phantomjs" -Skip:(-not (Test-IsUbuntu20)) {
     It "phantomjs" {
         $env:OPENSSL_CONF="/etc/ssl"
         "phantomjs --version" | Should -ReturnZeroExitCode
@@ -338,7 +364,7 @@ Describe "Containers" {
 
 }
 
-Describe "nvm" {
+Describe "nvm" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "nvm" {
         "source /etc/skel/.nvm/nvm.sh && nvm --version" | Should -ReturnZeroExitCode
     }
@@ -374,7 +400,7 @@ Describe "yq" {
     }
 }
 
-Describe "Kotlin" {
+Describe "Kotlin" -Skip:((-not (Test-IsUbuntu20)) -and (-not (Test-IsUbuntu22))) {
     It "kapt" {
         "kapt -version" | Should -ReturnZeroExitCode
     }

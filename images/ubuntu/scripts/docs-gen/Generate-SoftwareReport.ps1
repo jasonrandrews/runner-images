@@ -65,7 +65,9 @@ $packageManagement = $installedSoftware.AddHeader("Package Management")
 #NOSUP$packageManagement.AddToolVersion("Homebrew", $(Get-HomebrewVersion))
 #LOW$packageManagement.AddToolVersion("Miniconda", $(Get-MinicondaVersion))
 $packageManagement.AddToolVersion("Npm", $(Get-NpmVersion))
-$packageManagement.AddToolVersion("NuGet", $(Get-NuGetVersion))
+if (-not $(Test-IsUbuntu24)) {
+    $packageManagement.AddToolVersion("NuGet", $(Get-NuGetVersion))
+}
 $packageManagement.AddToolVersion("Pip", $(Get-PipVersion))
 $packageManagement.AddToolVersion("Pip3", $(Get-Pip3Version))
 #LOW$packageManagement.AddToolVersion("Pipx", $(Get-PipxVersion))
@@ -106,6 +108,9 @@ $tools.AddToolVersion("Bazelisk", $(Get-BazeliskVersion))
 $tools.AddToolVersion("CMake", $(Get-CMakeVersion))
 #NOSUP$tools.AddToolVersion("CodeQL Action Bundle", $(Get-CodeQLBundleVersion))
 $tools.AddToolVersion("Docker Amazon ECR Credential Helper", $(Get-DockerAmazonECRCredHelperVersion))
+if ((Test-IsUbuntu20) -or (Test-IsUbuntu22)) {
+    $tools.AddToolVersion("Docker Compose v1", $(Get-DockerComposeV1Version))
+}
 $tools.AddToolVersion("Docker Compose v2", $(Get-DockerComposeV2Version))
 $tools.AddToolVersion("Docker-Buildx", $(Get-DockerBuildxVersion))
 $tools.AddToolVersion("Docker Client", $(Get-DockerClientVersion))

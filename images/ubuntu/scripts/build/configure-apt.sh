@@ -4,6 +4,8 @@
 ##  Desc:  Configure apt, install jq and apt-fast packages.
 ################################################################################
 
+source $HELPER_SCRIPTS/os.sh
+
 # Stop and disable apt-daily upgrade services;
 systemctl stop apt-daily.timer
 systemctl disable apt-daily.timer
@@ -42,6 +44,8 @@ apt-get update
 # Install jq
 apt-get install jq
 
-# Install apt-fast using quick-install.sh
-# https://github.com/ilikenwf/apt-fast
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)"
+if ! is_ubuntu24; then
+    # Install apt-fast using quick-install.sh
+    # https://github.com/ilikenwf/apt-fast
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ilikenwf/apt-fast/master/quick-install.sh)"
+fi
