@@ -69,7 +69,7 @@ variable "image_os" {
 
 variable "image_version" {
   type    = string
-  default = "dev"
+  default = "0.0.1"
 }
 
 variable "imagedata_file" {
@@ -94,6 +94,11 @@ variable "location" {
 }
 
 variable "managed_image_name" {
+  type    = string
+  default = ""
+}
+
+variable "managed_image_gallery_name" {
   type    = string
   default = ""
 }
@@ -151,10 +156,19 @@ source "azure-arm" "build_image" {
   client_secret                          = "${var.client_secret}"
   image_offer                            = "0001-com-ubuntu-server-jammy"
   image_publisher                        = "canonical"
-  image_sku                              = "22_04-lts"
+  image_sku                              = "22_04-lts-arm64"
   location                               = "${var.location}"
-  managed_image_name                     = "${local.managed_image_name}"
-  managed_image_resource_group_name      = "${var.managed_image_resource_group_name}"
+  #managed_image_name                     = "${local.managed_image_name}"
+  #managed_image_resource_group_name      = "${var.managed_image_resource_group_name}"
+
+  shared_image_gallery_destination {
+    subscription = "${var.subscription_id}"
+    resource_group = "${var.managed_image_resource_group_name}"
+    gallery_name = "${var.managed_image_gallery_name}"
+    image_name = "${local.managed_image_name}"
+    image_version = "${var.image_version}"
+  }
+
   os_disk_size_gb                        = "75"
   os_type                                = "Linux"
   private_virtual_network_with_public_ip = "${var.private_virtual_network_with_public_ip}"
@@ -337,23 +351,25 @@ build {
     ]
   }
 
+  #scripts          = ["${path.root}/../scripts/build/install-docker-compose.sh", "${path.root}/../scripts/build/install-docker.sh"]
+  # there is no docker-compose for arm64 (version 1.29.2)
   provisioner "shell" {
     environment_vars = ["HELPER_SCRIPTS=${var.helper_script_folder}", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}", "DOCKERHUB_LOGIN=${var.dockerhub_login}", "DOCKERHUB_PASSWORD=${var.dockerhub_password}"]
     execute_command  = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
-    scripts          = ["${path.root}/../scripts/build/install-docker-compose.sh", "${path.root}/../scripts/build/install-docker.sh"]
+    scripts          = ["${path.root}/../scripts/build/install-docker.sh"]
   }
 
-  provisioner "shell" {
-    environment_vars = ["HELPER_SCRIPTS=${var.helper_script_folder}", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}"]
-    execute_command  = "sudo sh -c '{{ .Vars }} pwsh -f {{ .Path }}'"
-    scripts          = ["${path.root}/../scripts/build/Install-Toolset.ps1", "${path.root}/../scripts/build/Configure-Toolset.ps1"]
-  }
+  #provisioner "shell" {
+  #  environment_vars = ["HELPER_SCRIPTS=${var.helper_script_folder}", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}"]
+  #  execute_command  = "sudo sh -c '{{ .Vars }} pwsh -f {{ .Path }}'"
+  #  scripts          = ["${path.root}/../scripts/build/Install-Toolset.ps1", "${path.root}/../scripts/build/Configure-Toolset.ps1"]
+  #}
 
-  provisioner "shell" {
-    environment_vars = ["HELPER_SCRIPTS=${var.helper_script_folder}", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}"]
-    execute_command  = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
-    scripts          = ["${path.root}/../scripts/build/install-pipx-packages.sh"]
-  }
+  #provisioner "shell" {
+  #  environment_vars = ["HELPER_SCRIPTS=${var.helper_script_folder}", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}"]
+  #  execute_command  = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+  #  scripts          = ["${path.root}/../scripts/build/install-pipx-packages.sh"]
+  #}
 
   provisioner "shell" {
     environment_vars = ["HELPER_SCRIPTS=${var.helper_script_folder}", "DEBIAN_FRONTEND=noninteractive", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}"]
@@ -380,22 +396,22 @@ build {
     start_retry_timeout = "10m"
   }
 
-  provisioner "shell" {
-    environment_vars = ["IMAGE_VERSION=${var.image_version}", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}"]
-    inline           = ["pwsh -File ${var.image_folder}/SoftwareReport/Generate-SoftwareReport.ps1 -OutputDirectory ${var.image_folder}", "pwsh -File ${var.image_folder}/tests/RunAll-Tests.ps1 -OutputDirectory ${var.image_folder}"]
-  }
+#  provisioner "shell" {
+#    environment_vars = ["IMAGE_VERSION=${var.image_version}", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}"]
+#    inline           = ["pwsh -File ${var.image_folder}/SoftwareReport/Generate-SoftwareReport.ps1 -OutputDirectory ${var.image_folder}", "pwsh -File ${var.image_folder}/tests/RunAll-Tests.ps1 -OutputDirectory ${var.image_folder}"]
+#  }
 
-  provisioner "file" {
-    destination = "${path.root}/../Ubuntu2204-Readme.md"
-    direction   = "download"
-    source      = "${var.image_folder}/software-report.md"
-  }
+#  provisioner "file" {
+#    destination = "${path.root}/../Ubuntu2204-Readme.md"
+#    direction   = "download"
+#    source      = "${var.image_folder}/software-report.md"
+#  }
 
-  provisioner "file" {
-    destination = "${path.root}/../software-report.json"
-    direction   = "download"
-    source      = "${var.image_folder}/software-report.json"
-  }
+#  provisioner "file" {
+#    destination = "${path.root}/../software-report.json"
+#    direction   = "download"
+#    source      = "${var.image_folder}/software-report.json"
+#  }
 
   provisioner "shell" {
     environment_vars = ["HELPER_SCRIPT_FOLDER=${var.helper_script_folder}", "INSTALLER_SCRIPT_FOLDER=${var.installer_script_folder}", "IMAGE_FOLDER=${var.image_folder}"]
