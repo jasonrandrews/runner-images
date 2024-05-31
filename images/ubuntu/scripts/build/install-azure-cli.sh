@@ -14,7 +14,7 @@ if is_ubuntu24; then
         gpg --dearmor | \
         sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null  
     AZ_DIST="jammy"
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_DIST main" | \
+    echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_DIST main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     sudo apt-get update
     sudo apt-get install azure-cli

@@ -7,6 +7,9 @@
 # Source the helpers for use with the script
 source $HELPER_SCRIPTS/install.sh
 
+# lower priority, not installing
+exit 0
+
 # This function installs PyPy using the specified arguments:
 #   $1=package_url
 install_pypy() {
