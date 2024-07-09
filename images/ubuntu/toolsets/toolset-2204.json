@@ -108,6 +108,7 @@
             "fakeroot",
             "fonts-noto-color-emoji",
             "gnupg2",
+            "golang-go",
             "imagemagick",
             "iproute2",
             "iputils-ping",

@@ -84,6 +84,7 @@
             "fakeroot",
             "fonts-noto-color-emoji",
             "gnupg2",
+            "golang-go",
             "iproute2",
             "iputils-ping",
             "libyaml-dev",
