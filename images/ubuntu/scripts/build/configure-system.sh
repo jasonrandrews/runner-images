@@ -38,3 +38,7 @@ if is_ubuntu24; then
 # as configuration is too different between Ubuntu versions.
     sed -i '/^\s*};/i \    qr(^runner-provisioner) => 0,' /etc/needrestart/needrestart.conf
 fi
+
+if is_ubuntu24; then
+    sudo apt-get purge needrestart -y
+fi
