@@ -50,8 +50,10 @@ $languageAndRuntime.AddToolVersionsListInline("GNU C++", $(Get-CPPVersions), "^\
 $languageAndRuntime.AddToolVersionsListInline("GNU Fortran", $(Get-FortranVersions), "^\d+")
 #LOW $languageAndRuntime.AddToolVersion("Julia", $(Get-JuliaVersion))
 $languageAndRuntime.AddToolVersion("Kotlin", $(Get-KotlinVersion))
-$languageAndRuntime.AddToolVersion("Mono", $(Get-MonoVersion))
-$languageAndRuntime.AddToolVersion("MSBuild", $(Get-MsbuildVersion))
+if (-not $(Test-IsUbuntu24)) {
+    $languageAndRuntime.AddToolVersion("Mono", $(Get-MonoVersion))
+    $languageAndRuntime.AddToolVersion("MSBuild", $(Get-MsbuildVersion))
+}
 $languageAndRuntime.AddToolVersion("Node.js", $(Get-NodeVersion))
 $languageAndRuntime.AddToolVersion("Perl", $(Get-PerlVersion))
 $languageAndRuntime.AddToolVersion("Python", $(Get-PythonVersion))
@@ -127,13 +129,17 @@ $tools.AddToolVersion("jq", $(Get-JqVersion))
 $tools.AddToolVersion("Kind", $(Get-KindVersion))
 $tools.AddToolVersion("Kubectl", $(Get-KubectlVersion))
 #$tools.AddToolVersion("Kustomize", $(Get-KustomizeVersion))
-#LOW$tools.AddToolVersion("Leiningen", $(Get-LeiningenVersion))
-#LOW$tools.AddToolVersion("MediaInfo", $(Get-MediainfoVersion))
-#LOW$tools.AddToolVersion("Mercurial", $(Get-HGVersion))
+#LOWif ((Test-IsUbuntu20) -or (Test-IsUbuntu22)) {
+#LOW    $tools.AddToolVersion("Leiningen", $(Get-LeiningenVersion))
+#LOW}
+#$tools.AddToolVersion("MediaInfo", $(Get-MediainfoVersion))
+#$tools.AddToolVersion("Mercurial", $(Get-HGVersion))
 #$tools.AddToolVersion("Minikube", $(Get-MinikubeVersion))
 #$tools.AddToolVersion("n", $(Get-NVersion))
 #$tools.AddToolVersion("Newman", $(Get-NewmanVersion))
-#$tools.AddToolVersion("nvm", $(Get-NvmVersion))
+#if ((Test-IsUbuntu20) -or (Test-IsUbuntu22)) {
+#    $tools.AddToolVersion("nvm", $(Get-NvmVersion))
+#}
 #$tools.AddToolVersion("OpenSSL", $(Get-OpensslVersion))
 #$tools.AddToolVersion("Packer", $(Get-PackerVersion))
 #$tools.AddToolVersion("Parcel", $(Get-ParcelVersion))
@@ -194,20 +200,21 @@ $cliTools.AddToolVersion("Vercel CLI", $(Get-VerselCliversion))
 #$rustToolsPackages.AddToolVersion("Cbindgen", $(Get-CbindgenVersion))
 #$rustToolsPackages.AddToolVersion("Rustfmt", $(Get-RustfmtVersion))
 
+#$netCoreTools = $installedSoftware.AddHeader(".NET Tools")
+#$netCoreTools.AddToolVersionsListInline(".NET Core SDK", $(Get-DotNetCoreSdkVersions), "^\d+\.\d+\.\d")
+#$netCoreTools.AddNodes($(Get-DotnetTools))
+
+# Browsers and Drivers
 #$browsersTools = $installedSoftware.AddHeader("Browsers and Drivers")
 #$browsersTools.AddToolVersion("Google Chrome", $(Get-ChromeVersion))
 #$browsersTools.AddToolVersion("ChromeDriver", $(Get-ChromeDriverVersion))
 #$browsersTools.AddToolVersion("Chromium", $(Get-ChromiumVersion))
 #$browsersTools.AddToolVersion("Microsoft Edge", $(Get-EdgeVersion))
 #$browsersTools.AddToolVersion("Microsoft Edge WebDriver", $(Get-EdgeDriverVersion))
+
 #$browsersTools.AddToolVersion("Selenium server", $(Get-SeleniumVersion))
 #$browsersTools.AddToolVersion("Mozilla Firefox", $(Get-FirefoxVersion))
 #$browsersTools.AddToolVersion("Geckodriver", $(Get-GeckodriverVersion))
-#$browsersTools.AddHeader("Environment variables").AddTable($(Build-BrowserWebdriversEnvironmentTable))
-
-#$netCoreTools = $installedSoftware.AddHeader(".NET Tools")
-#$netCoreTools.AddToolVersionsListInline(".NET Core SDK", $(Get-DotNetCoreSdkVersions), "^\d+\.\d+\.\d")
-#$netCoreTools.AddNodes($(Get-DotnetTools))
 
 #$databasesTools = $installedSoftware.AddHeader("Databases")
 #if (Test-IsUbuntu20) {

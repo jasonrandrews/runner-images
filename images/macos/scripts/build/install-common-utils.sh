@@ -17,7 +17,12 @@ for package in $common_packages; do
         xcbeautify_path=$(download_with_retry "https://raw.githubusercontent.com/Homebrew/homebrew-core/d3653e83f9c029a3fddb828ac804b07ac32f7b3b/Formula/x/xcbeautify.rb")
         brew install "$xcbeautify_path"
     else
-        brew_smart_install "$package"
+        if [[ $package == "packer" ]]; then
+            # Packer has been deprecated in Homebrew. Use tap to install Packer.
+            brew install hashicorp/tap/packer
+        else
+            brew_smart_install "$package"
+        fi
     fi
 done
 
@@ -30,24 +35,38 @@ for package in $cask_packages; do
         virtualbox_cask_path=$(download_with_retry "https://raw.githubusercontent.com/Homebrew/homebrew-cask/aa3c55951fc9d687acce43e5c0338f42c1ddff7b/Casks/virtualbox.rb")
         brew install $virtualbox_cask_path
     else
-        brew install --cask $package
+        if is_Arm64 && [[ $package == "parallels" ]]; then
+            echo "Parallels installation is skipped for arm64 architecture"
+        else
+            brew install --cask $package
+        fi
     fi
 done
 
 # Load "Parallels International GmbH"
-if is_Monterey; then
+if is_Monterey || is_SonomaX64 || is_VenturaX64; then
     sudo kextload /Applications/Parallels\ Desktop.app/Contents/Library/Extensions/10.9/prl_hypervisor.kext || true
 fi
 
-# Execute AppleScript to change security preferences
+# Execute AppleScript to change security preferences for macOS12, macOS13 and macOS14
 # System Preferences -> Security & Privacy -> General -> Unlock -> Allow -> Not now
-if is_Monterey; then
+if is_Monterey || is_SonomaX64 || is_VenturaX64; then
     for retry in {4..0}; do
         echo "Executing AppleScript to change security preferences. Retries left: $retry"
         {
             set -e
             osascript -e 'tell application "System Events" to get application processes where visible is true'
-            osascript $HOME/utils/confirm-identified-developers.scpt $USER_PASSWORD
+            if is_Monterey; then
+                osascript $HOME/utils/confirm-identified-developers.scpt $USER_PASSWORD
+            fi
+            
+            if is_VenturaX64; then
+                osascript $HOME/utils/confirm-identified-developers-macos13.scpt $USER_PASSWORD
+            fi    
+            
+            if is_SonomaX64; then
+                osascript $HOME/utils/confirm-identified-developers-macos14.scpt $USER_PASSWORD
+            fi
         } && break
 
         if [[ $retry -eq 0 ]]; then
@@ -61,9 +80,17 @@ if is_Monterey; then
 fi
 
 # Validate "Parallels International GmbH" kext
-if is_Monterey; then
-    echo "Closing System Preferences window if it is still opened"
-    killall "System Preferences" || true
+if is_Monterey || is_SonomaX64 || is_VenturaX64; then
+
+    if is_Monterey; then
+        echo "Closing System Preferences window if it is still opened"
+        killall "System Preferences" || true
+    fi
+
+    if is_SonomaX64 || is_VenturaX64; then
+        echo "Closing System Settings window if it is still opened"
+        killall "System Settings" || true
+    fi
 
     echo "Checking parallels kexts"
     dbName="/var/db/SystemPolicyConfiguration/KextPolicy"
