@@ -9,7 +9,7 @@ source $HELPER_SCRIPTS/install.sh
 source $HELPER_SCRIPTS/etc-environment.sh
 
 # no arm64 support
-exit 0
+#exit 0
 
 # Install
 image_label="ubuntu$(lsb_release -rs)"
@@ -18,6 +18,9 @@ swift_release_name="swift-${swift_version}-RELEASE-${image_label}-aarch64"
 
 archive_url="https://download.swift.org/swift-${swift_version}-release/${image_label//./}-aarch64/swift-${swift_version}-RELEASE/${swift_release_name}.tar.gz"
 archive_path=$(download_with_retry "$archive_url")
+
+echo $archive_url
+echo $swift_release_name
 
 # Verifying PGP signature using official Swift PGP key. Referring to https://www.swift.org/install/linux/#Installation-via-Tarball
 # Download and import Swift PGP keys
