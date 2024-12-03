@@ -137,7 +137,7 @@ if ((-not $os.IsVentura) -and (-not $os.IsSonoma) -and (-not $os.IsSequoia)) {
 }
 $utilities.AddToolVersion("OpenSSL", $(Get-OpenSSLVersion))
 $utilities.AddToolVersion("Packer", $(Get-PackerVersion))
-$utilities.AddToolVersion("pkg-config", $(Get-PKGConfigVersion))
+$utilities.AddToolVersion("pkgconf", $(Get-PKGConfVersion))
 if ((-not $os.IsVentura) -and (-not $os.IsSonoma) -and (-not $os.IsSequoia)) {
     $utilities.AddToolVersion("PostgreSQL", $(Get-PostgresServerVersion))
     $utilities.AddToolVersion("psql (PostgreSQL)", $(Get-PostgresClientVersion))
@@ -149,6 +149,7 @@ if ($os.IsMonterey) {
     $utilities.AddToolVersion("Vagrant", $(Get-VagrantVersion))
     $utilities.AddToolVersion("VirtualBox", $(Get-VirtualBoxVersion))
 }
+$utilities.AddToolVersion("Unxip", $(Get-UnxipVersion))
 $utilities.AddToolVersion("yq", $(Get-YqVersion))
 $utilities.AddToolVersion("zstd", $(Get-ZstdVersion))
 
@@ -293,9 +294,11 @@ if ($os.IsMonterey) {
     $miscellaneous.AddToolVersion("Zlib", $(Get-ZlibVersion))
 }
 
-if ($os.IsSonomaX64 -or $os.IsVenturaX64 -or $os.IsSequoiaX64) {
+if ($os.IsSonoma -or $os.IsVentura) {
     $miscellaneous = $installedSoftware.AddHeader("Miscellaneous")
+    $miscellaneous.AddToolVersion("Tcl/Tk", $(Get-TclTkVersion))
 }
+
 if ($os.IsMonterey -or $os.IsSonomaX64 -or $os.IsVenturaX64) {
 
     Write-Host "Adding environment variables for parallels"

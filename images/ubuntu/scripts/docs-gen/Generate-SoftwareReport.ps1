@@ -129,24 +129,22 @@ $tools.AddToolVersion("jq", $(Get-JqVersion))
 $tools.AddToolVersion("Kind", $(Get-KindVersion))
 $tools.AddToolVersion("Kubectl", $(Get-KubectlVersion))
 #$tools.AddToolVersion("Kustomize", $(Get-KustomizeVersion))
-#LOWif ((Test-IsUbuntu20) -or (Test-IsUbuntu22)) {
-#LOW    $tools.AddToolVersion("Leiningen", $(Get-LeiningenVersion))
-#LOW}
+#if ((Test-IsUbuntu20) -or (Test-IsUbuntu22)) {
+#    $tools.AddToolVersion("Leiningen", $(Get-LeiningenVersion))
+#}
 #$tools.AddToolVersion("MediaInfo", $(Get-MediainfoVersion))
 #$tools.AddToolVersion("Mercurial", $(Get-HGVersion))
 #$tools.AddToolVersion("Minikube", $(Get-MinikubeVersion))
 #$tools.AddToolVersion("n", $(Get-NVersion))
 #$tools.AddToolVersion("Newman", $(Get-NewmanVersion))
-#if ((Test-IsUbuntu20) -or (Test-IsUbuntu22)) {
-#    $tools.AddToolVersion("nvm", $(Get-NvmVersion))
-#}
+#$tools.AddToolVersion("nvm", $(Get-NvmVersion))
 #$tools.AddToolVersion("OpenSSL", $(Get-OpensslVersion))
 #$tools.AddToolVersion("Packer", $(Get-PackerVersion))
 #$tools.AddToolVersion("Parcel", $(Get-ParcelVersion))
 #if (Test-IsUbuntu20) {
 #    $tools.AddToolVersion("PhantomJS", $(Get-PhantomJSVersion))
 #}
-#LOW$tools.AddToolVersion("Podman", $(Get-PodManVersion))
+#$tools.AddToolVersion("Podman", $(Get-PodManVersion))
 $tools.AddToolVersion("Pulumi", $(Get-PulumiVersion))
 #NOSUP$tools.AddToolVersion("R", $(Get-RVersion))
 #LOW$tools.AddToolVersion("Skopeo", $(Get-SkopeoVersion))
@@ -167,10 +165,12 @@ $cliTools.AddToolVersion("Azure CLI", $(Get-AzureCliVersion))
 $cliTools.AddToolVersion("Azure CLI (azure-devops)", $(Get-AzureDevopsVersion))
 $cliTools.AddToolVersion("GitHub CLI", $(Get-GitHubCliVersion))
 $cliTools.AddToolVersion("Google Cloud CLI", $(Get-GoogleCloudCLIVersion))
-#$cliTools.AddToolVersion("Netlify CLI", $(Get-NetlifyCliVersion))
-#LOW$cliTools.AddToolVersion("OpenShift CLI", $(Get-OCCliVersion))
-#LOW$cliTools.AddToolVersion("ORAS CLI", $(Get-ORASCliVersion))
-$cliTools.AddToolVersion("Vercel CLI", $(Get-VerselCliversion))
+if ((Test-IsUbuntu20) -or (Test-IsUbuntu22)) {
+#    $cliTools.AddToolVersion("Netlify CLI", $(Get-NetlifyCliVersion))
+#    $cliTools.AddToolVersion("OpenShift CLI", $(Get-OCCliVersion))
+#    $cliTools.AddToolVersion("ORAS CLI", $(Get-ORASCliVersion))
+    $cliTools.AddToolVersion("Vercel CLI", $(Get-VerselCliversion))
+}
 
 #$installedSoftware.AddHeader("Java").AddTable($(Get-JavaVersionsTable))
 
