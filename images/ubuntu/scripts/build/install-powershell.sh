@@ -12,7 +12,6 @@ pwsh_version=$(get_toolset_value .pwsh.version)
 
 # Install Powershell
 # No icu support for arm64
-#if is_ubuntu24; then
 if false; then
     dependency_path=$(download_with_retry "http://mirrors.kernel.org/ubuntu/pool/main/i/icu/libicu72_72.1-3ubuntu2_amd64.deb")
     sudo dpkg -i "$dependency_path"
@@ -21,7 +20,7 @@ if false; then
 else
     #apt-get install -y powershell=$pwsh_version*
     # Download the powershell '.tar.gz' archive
-    curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.4.2/powershell-7.4.2-linux-arm64.tar.gz
+    curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.4.6/powershell-7.4.6-linux-arm64.tar.gz
 
     # Create the target folder where powershell will be placed
     sudo mkdir -p /opt/microsoft/powershell/7

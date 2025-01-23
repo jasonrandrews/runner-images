@@ -18,6 +18,12 @@ github_url="https://github.com/actions/runner-images/blob"
 software_url="${github_url}/ubuntu${version_major}/${image_version_major}.${image_version_minor}/images/ubuntu/Ubuntu${version_wo_dot}-Readme.md"
 releaseUrl="https://github.com/actions/runner-images/releases/tag/ubuntu${version_major}%2F${image_version_major}.${image_version_minor}"
 
+if [[ "$os_version" == "24.04" ]]; then
+  software_url="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md"
+elif [[ "$os_version" == "22.04" ]]; then
+  software_url="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-22-image.md"
+fi
+
 cat <<EOF > $imagedata_file
 [
   {
@@ -26,7 +32,7 @@ cat <<EOF > $imagedata_file
   },
   {
     "group": "Runner Image",
-    "detail": "Image: ${image_label}\nVersion: ${image_version}\nIncluded Software: ${software_url}\nImage Release: ${releaseUrl}"
+    "detail": "Image: ${image_label}\nVersion: ${image_version}\nIncluded Software: ${software_url}\n"
   }
 ]
 EOF
