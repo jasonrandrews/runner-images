@@ -8,17 +8,9 @@
 source $HELPER_SCRIPTS/os.sh
 source $HELPER_SCRIPTS/install.sh
 
-# lower priority, not installing
-exit 0
 
-if is_ubuntu20; then
-    toolset_version=$(get_toolset_value '.ocCli.version')
-    download_url="https://mirror.openshift.com/pub/openshift-v4/clients/ocp/$toolset_version/openshift-client-linux-$toolset_version.tar.gz"
-else 
-
-    # Install the oc CLI
-    download_url="https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-arm64.tar.gz"   
-fi
+# Install the oc CLI
+download_url="https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-arm64.tar.gz"
 
 archive_path=$(download_with_retry "$download_url")
 
