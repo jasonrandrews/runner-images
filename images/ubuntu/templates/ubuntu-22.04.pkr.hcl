@@ -14,7 +14,7 @@ variable "azure_tags" {
 
 variable "build_resource_group_name" {
   type    = string
-  default = "${env("BUILD_RESOURCE_GROUP_NAME")}"
+  default = "${env("BUILD_RG_NAME")}"
 }
 
 variable "client_cert_path" {
@@ -81,7 +81,7 @@ variable "install_password" {
 
 variable "location" {
   type    = string
-  default = "${env("ARM_RESOURCE_LOCATION")}"
+  default = ""
 }
 
 variable "managed_image_name" {
@@ -137,6 +137,61 @@ variable "virtual_network_subnet_name" {
 variable "vm_size" {
   type    = string
   default = "Standard_D4s_v4"
+}
+
+variable "image_offer" {
+  type    = string
+  default = "0001-com-ubuntu-server-jammy"
+}
+
+variable "image_publisher" {
+  type    = string
+  default = "canonical"
+}
+
+variable "image_sku" {
+  type    = string
+  default = "22_04-lts"
+}
+
+variable "gallery_name" {
+  type    = string
+  default = "${env("GALLERY_NAME")}"
+}
+
+variable "gallery_resource_group_name" {
+  type    = string
+  default = "${env("GALLERY_RG_NAME")}"
+}
+
+variable "gallery_image_name" {
+  type    = string
+  default = "${env("GALLERY_IMAGE_NAME")}"
+}
+
+variable "gallery_image_version" {
+  type    = string
+  default = "${env("GALLERY_IMAGE_VERSION")}"
+}
+
+variable "gallery_storage_account_type" {
+  type    = string
+  default = "${env("GALLERY_STORAGE_ACCOUNT_TYPE")}"
+}
+
+variable "use_azure_cli_auth" {
+  type    = bool
+  default = false
+}
+
+variable "os_disk_size_gb" {
+  type    = number
+  default = 75
+}
+
+variable "image_os_type" {
+  type    = string
+  default = "Linux"
 }
 
 source "azure-arm" "build_image" {
