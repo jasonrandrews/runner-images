@@ -43,3 +43,8 @@ fi
 prepend_etc_environment_path '$HOME/.local/bin'
 
 invoke_tests "Tools" "Python"
+
+pyc_file_path='/usr/lib/python3/dist-packages/pygments/lexers/__pycache__/templates.cpython-310.pyc'
+if [ -f "$pyc_file_path" ]; then
+    rm -f "$pyc_file_path" || true
+fi
