@@ -12,6 +12,11 @@ source $HELPER_SCRIPTS/install.sh
 # Install PHP
 php_versions=$(get_toolset_value '.php.versions[]')
 
+apt update
+apt install software-properties-common ca-certificates lsb-release apt-transport-https
+add-apt-repository ppa:ondrej/php
+apt update
+
 for version in $php_versions; do
     echo "Installing PHP $version"
     apt-get install --no-install-recommends \

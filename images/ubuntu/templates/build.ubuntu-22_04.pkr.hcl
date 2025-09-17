@@ -1,242 +1,7 @@
-locals {
-  managed_image_name = var.managed_image_name != "" ? var.managed_image_name : "packer-${var.image_os}-${var.image_version}"
-}
-
-variable "allowed_inbound_ip_addresses" {
-  type    = list(string)
-  default = []
-}
-
-variable "azure_tags" {
-  type    = map(string)
-  default = {}
-}
-
-variable "build_resource_group_name" {
-  type    = string
-  default = "${env("BUILD_RG_NAME")}"
-}
-
-variable "client_cert_path" {
-  type    = string
-  default = "${env("ARM_CLIENT_CERT_PATH")}"
-}
-
-variable "client_id" {
-  type    = string
-  default = "${env("ARM_CLIENT_ID")}"
-}
-
-variable "client_secret" {
-  type      = string
-  default   = "${env("ARM_CLIENT_SECRET")}"
-  sensitive = true
-}
-
-variable "dockerhub_login" {
-  type    = string
-  default = "${env("DOCKERHUB_LOGIN")}"
-}
-
-variable "dockerhub_password" {
-  type    = string
-  default = "${env("DOCKERHUB_PASSWORD")}"
-}
-
-variable "helper_script_folder" {
-  type    = string
-  default = "/imagegeneration/helpers"
-}
-
-variable "image_folder" {
-  type    = string
-  default = "/imagegeneration"
-}
-
-variable "image_os" {
-  type    = string
-  default = "ubuntu22"
-}
-
-variable "image_version" {
-  type    = string
-  default = "0.0.1"
-}
-
-variable "imagedata_file" {
-  type    = string
-  default = "/imagegeneration/imagedata.json"
-}
-
-variable "installer_script_folder" {
-  type    = string
-  default = "/imagegeneration/installers"
-}
-
-variable "install_password" {
-  type      = string
-  default   = ""
-  sensitive = true
-}
-
-variable "location" {
-  type    = string
-  default = ""
-}
-
-variable "managed_image_name" {
-  type    = string
-  default = ""
-}
-
-variable "managed_image_gallery_name" {
-  type    = string
-  default = ""
-}
-
-variable "managed_image_resource_group_name" {
-  type    = string
-  default = "${env("ARM_RESOURCE_GROUP")}"
-}
-
-variable "private_virtual_network_with_public_ip" {
-  type    = bool
-  default = false
-}
-
-variable "subscription_id" {
-  type    = string
-  default = "${env("ARM_SUBSCRIPTION_ID")}"
-}
-
-variable "temp_resource_group_name" {
-  type    = string
-  default = "${env("TEMP_RESOURCE_GROUP_NAME")}"
-}
-
-variable "tenant_id" {
-  type    = string
-  default = "${env("ARM_TENANT_ID")}"
-}
-
-variable "virtual_network_name" {
-  type    = string
-  default = "${env("VNET_NAME")}"
-}
-
-variable "virtual_network_resource_group_name" {
-  type    = string
-  default = "${env("VNET_RESOURCE_GROUP")}"
-}
-
-variable "virtual_network_subnet_name" {
-  type    = string
-  default = "${env("VNET_SUBNET")}"
-}
-
-variable "vm_size" {
-  type    = string
-  default = "Standard_D4s_v4"
-}
-
-variable "image_offer" {
-  type    = string
-  default = "0001-com-ubuntu-server-jammy"
-}
-
-variable "image_publisher" {
-  type    = string
-  default = "canonical"
-}
-
-variable "image_sku" {
-  type    = string
-  default = "22_04-lts"
-}
-
-variable "gallery_name" {
-  type    = string
-  default = "${env("GALLERY_NAME")}"
-}
-
-variable "gallery_resource_group_name" {
-  type    = string
-  default = "${env("GALLERY_RG_NAME")}"
-}
-
-variable "gallery_image_name" {
-  type    = string
-  default = "${env("GALLERY_IMAGE_NAME")}"
-}
-
-variable "gallery_image_version" {
-  type    = string
-  default = "${env("GALLERY_IMAGE_VERSION")}"
-}
-
-variable "gallery_storage_account_type" {
-  type    = string
-  default = "${env("GALLERY_STORAGE_ACCOUNT_TYPE")}"
-}
-
-variable "use_azure_cli_auth" {
-  type    = bool
-  default = false
-}
-
-variable "os_disk_size_gb" {
-  type    = number
-  default = 75
-}
-
-variable "image_os_type" {
-  type    = string
-  default = "Linux"
-}
-
-source "azure-arm" "build_image" {
-  allowed_inbound_ip_addresses           = "${var.allowed_inbound_ip_addresses}"
-  build_resource_group_name              = "${var.build_resource_group_name}"
-  client_cert_path                       = "${var.client_cert_path}"
-  client_id                              = "${var.client_id}"
-  client_secret                          = "${var.client_secret}"
-  image_offer                            = "0001-com-ubuntu-server-jammy"
-  image_publisher                        = "canonical"
-  image_sku                              = "22_04-lts-arm64"
-  location                               = "${var.location}"
-  #managed_image_name                     = "${local.managed_image_name}"
-  #managed_image_resource_group_name      = "${var.managed_image_resource_group_name}"
-
-  shared_image_gallery_destination {
-    subscription = "${var.subscription_id}"
-    resource_group = "${var.managed_image_resource_group_name}"
-    gallery_name = "${var.managed_image_gallery_name}"
-    image_name = "${local.managed_image_name}"
-    image_version = "${var.image_version}"
-  }
-
-  os_disk_size_gb                        = "75"
-  os_type                                = "Linux"
-  private_virtual_network_with_public_ip = "${var.private_virtual_network_with_public_ip}"
-  subscription_id                        = "${var.subscription_id}"
-  temp_resource_group_name               = "${var.temp_resource_group_name}"
-  tenant_id                              = "${var.tenant_id}"
-  virtual_network_name                   = "${var.virtual_network_name}"
-  virtual_network_resource_group_name    = "${var.virtual_network_resource_group_name}"
-  virtual_network_subnet_name            = "${var.virtual_network_subnet_name}"
-  vm_size                                = "${var.vm_size}"
-
-  dynamic "azure_tag" {
-    for_each = var.azure_tags
-    content {
-      name = azure_tag.key
-      value = azure_tag.value
-    }
-  }
-}
 
 build {
-  sources = ["source.azure-arm.build_image"]
+  sources = ["source.azure-arm.image"]
+  name = "ubuntu-22_04"
 
   provisioner "shell" {
     execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
@@ -438,7 +203,7 @@ build {
 
   provisioner "shell" {
     execute_command     = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
-    pause_before        = "1m0s"
+    pause_before        = "5m0s"
     scripts             = ["${path.root}/../scripts/build/cleanup.sh"]
     start_retry_timeout = "10m"
   }
@@ -474,6 +239,12 @@ build {
   provisioner "shell" {
     execute_command = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
     inline          = ["mkdir -p /etc/vsts", "cp /tmp/ubuntu2204.conf /etc/vsts/machine_instance.conf"]
+  }
+
+  provisioner "shell" {
+    environment_vars = ["HELPER_SCRIPTS=${var.helper_script_folder}"]
+    execute_command  = "sudo sh -c '{{ .Vars }} {{ .Path }}'"
+    scripts          = ["${path.root}/../scripts/build/post-build-validation.sh"]
   }
 
   provisioner "shell" {
