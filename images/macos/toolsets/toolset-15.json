@@ -4,12 +4,20 @@
         "x64": {
             "versions": [
                 {
-                    "link": "26_beta_7",
-                    "filename": "26_beta_7_Universal",
-                    "version": "26.0.0-Beta.7+17A5305k",
-                    "symlinks": ["26.0"],
-                    "sha256": "d711e1d6774647d38daac112ebb6d085af863ecc541f8de2360eaf44e638e8a6",
+                    "link": "26.1_beta_2",
+                    "filename": "26.1_beta_2_Universal",
+                    "version": "26.1-Beta_2+17B5035f",
+                    "symlinks": ["26.1"],
+                    "sha256": "D06679C151B84CBD5B4348A11FD312B7746BD2C95BF5A75FB316F33C428AE76F",
                     "install_runtimes": "none"
+                },
+                {
+                    "link": "26.0.1",
+                    "filename": "26.0.1_Universal",
+                    "version": "26.0.1+17A400",
+                    "symlinks": ["26.0"],
+                    "sha256": "9881c457068c86ac91e94cca2d7116dfd01cb7179c22b0863b63c7f3bb7e7695",
+                    "install_runtimes": "default"
                 },
                 {
                     "link": "16.4",
@@ -56,12 +64,20 @@
         "arm64":{
             "versions": [
                 {
-                    "link": "26_beta_7",
-                    "filename": "26_beta_7_Universal",
-                    "version": "26.0.0-Beta.7+17A5305k",
-                    "symlinks": ["26.0"],
-                    "sha256": "d711e1d6774647d38daac112ebb6d085af863ecc541f8de2360eaf44e638e8a6",
+                    "link": "26.1_beta_2",
+                    "filename": "26.1_beta_2_Universal",
+                    "version": "26.1-Beta_2+17B5035f",
+                    "symlinks": ["26.1"],
+                    "sha256": "D06679C151B84CBD5B4348A11FD312B7746BD2C95BF5A75FB316F33C428AE76F",
                     "install_runtimes": "none"
+                },
+                {
+                    "link": "26.0.1",
+                    "filename": "26.0.1_Universal",
+                    "version": "26.0.1+17A400",
+                    "symlinks": ["26.0"],
+                    "sha256": "9881c457068c86ac91e94cca2d7116dfd01cb7179c22b0863b63c7f3bb7e7695",
+                    "install_runtimes": "default"
                 },
                 {
                     "link": "16.4",
@@ -110,11 +126,11 @@
     "java": {
         "x64": {
             "default": "21",
-            "versions": [ "11", "17", "21"]
+            "versions": [ "11", "17", "21", "25" ]
         },
         "arm64": {
             "default": "21",
-            "versions": [ "11", "17", "21"]
+            "versions": [ "11", "17", "21", "25" ]
         }
     },
     "android": {
@@ -165,6 +181,7 @@
             "perl",
             "pkgconf",
             "swiftformat",
+            "tcl-tk@8",
             "zstd",
             "ninja",
             "gmp",
@@ -221,14 +238,16 @@
                         "3.10.*",
                         "3.11.*",
                         "3.12.*",
-                        "3.13.*"
+                        "3.13.*",
+                        "3.14.*"
                     ]
                 },
                 "arm64": {
                     "versions": [
                         "3.11.*",
                         "3.12.*",
-                        "3.13.*"
+                        "3.13.*",
+                        "3.14.*"
                     ]
                 }
             }
@@ -242,14 +261,16 @@
                     "versions": [
                         "18.*",
                         "20.*",
-                        "22.*"
+                        "22.*",
+                        "24.*"
                     ]
                 },
                 "arm64": {
                     "versions": [
                         "18.*",
                         "20.*",
-                        "22.*"
+                        "22.*",
+                        "24.*"
                     ]
                 }
             }
@@ -264,7 +285,8 @@
                     "versions": [
                         "1.22.*",
                         "1.23.*",
-                        "1.24.*"
+                        "1.24.*",
+                        "1.25.*"
                     ]
                 },
                 "arm64": {
@@ -272,7 +294,8 @@
                     "versions": [
                         "1.22.*",
                         "1.23.*",
-                        "1.24.*"
+                        "1.24.*",
+                        "1.25.*"
                     ]
                 }
             }
