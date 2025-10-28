@@ -31,7 +31,7 @@
 - Pip3 22.0.2
 - Pipx 1.8.0
 - RubyGems 3.3.5
-- Vcpkg (build from commit 7c851c520b)
+- Vcpkg (build from commit 68b1b31e03)
 - Yarn 1.22.22
 
 #### Environment variables
@@ -80,7 +80,7 @@
 - Ninja 1.12.1
 
 ### CLI Tools
-- AWS CLI 2.31.21
+- AWS CLI 2.31.22
 - AWS CLI Session Manager Plugin 1.2.707.0
 - AWS SAM CLI 1.145.2
 - Azure CLI 2.78.0
@@ -94,7 +94,7 @@
 | ------------------- | -------------------- |
 | 8.0.462+8           | JAVA_HOME_8_X64      |
 | 11.0.28+6 (default) | JAVA_HOME_11_X64     |
-| 17.0.16+8           | JAVA_HOME_17_X64     |
+| 17.0.17+10          | JAVA_HOME_17_X64     |
 | 21.0.8+9            | JAVA_HOME_21_X64     |
 | 25.0.0+36           | JAVA_HOME_25_X64     |
 

@@ -28,7 +28,7 @@
 - Pip3 24.0
 - Pipx 1.8.0
 - RubyGems 3.4.20
-- Vcpkg (build from commit a3f13aa710)
+- Vcpkg (build from commit cf1490f511)
 - Yarn 1.22.22
 
 #### Environment variables
@@ -74,7 +74,7 @@
 - Ninja 1.12.1
 
 ### CLI Tools
-- AWS CLI 2.31.21
+- AWS CLI 2.31.23
 - AWS CLI Session Manager Plugin 1.2.707.0
 - AWS SAM CLI 1.145.2
 - Azure CLI 2.78.0
@@ -83,13 +83,13 @@
 - Google Cloud CLI 544.0.0
 
 ### Java
-| Version             | Environment Variable |
-| ------------------- | -------------------- |
-| 8.0.462+8           | JAVA_HOME_8_X64      |
-| 11.0.28+6           | JAVA_HOME_11_X64     |
-| 17.0.16+8 (default) | JAVA_HOME_17_X64     |
-| 21.0.8+9            | JAVA_HOME_21_X64     |
-| 25.0.0+36           | JAVA_HOME_25_X64     |
+| Version              | Environment Variable |
+| -------------------- | -------------------- |
+| 8.0.462+8            | JAVA_HOME_8_X64      |
+| 11.0.28+6            | JAVA_HOME_11_X64     |
+| 17.0.17+10 (default) | JAVA_HOME_17_X64     |
+| 21.0.8+9             | JAVA_HOME_21_X64     |
+| 25.0.0+36            | JAVA_HOME_25_X64     |
 
 ### PHP Tools
 - PHP: 8.3.26
