@@ -24,14 +24,15 @@
 - Swift 6.2.3
 
 ### Package Management
-- Helm 3.19.3
+- Helm 3.19.4
+- Homebrew 5.0.5
 - Npm 10.8.2
 - NuGet 6.6.1.2
 - Pip 22.0.2
 - Pip3 22.0.2
 - Pipx 1.8.0
 - RubyGems 3.3.5
-- Vcpkg (build from commit 594ad8871e)
+- Vcpkg (build from commit 2b6a882f61)
 - Yarn 1.22.22
 
 #### Environment variables
@@ -39,6 +40,14 @@
 | ----------------------- | ---------------------- |
 | CONDA                   |                        |
 | VCPKG_INSTALLATION_ROOT | /usr/local/share/vcpkg |
+
+#### Homebrew note
+```
+Location: /home/linuxbrew
+Note: Homebrew is pre-installed on image but not added to PATH.
+run the eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" command
+to accomplish this.
+```
 
 ### Project Management
 - Ant 1.10.12
@@ -75,19 +84,19 @@
 - SVN 1.14.1
 - Terraform 1.14.2
 - yamllint 1.37.1
-- yq 4.49.2
+- yq 4.50.1
 - zstd 1.5.7
 - Ninja 1.12.1
 
 ### CLI Tools
-- AWS CLI 2.32.16
+- AWS CLI 2.32.17
 - AWS CLI Session Manager Plugin 1.2.764.0
 - AWS SAM CLI 1.150.1
 - Azure CLI 2.81.0
 - Azure CLI (azure-devops) 1.0.2
 - GitHub CLI 2.83.2
 - Google Cloud CLI 549.0.1
-- Vercel CLI 50.0.1
+- Vercel CLI 50.1.0
 
 ### Java
 | Version             | Environment Variable |

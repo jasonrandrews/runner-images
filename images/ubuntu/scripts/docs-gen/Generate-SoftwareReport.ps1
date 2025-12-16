@@ -60,7 +60,7 @@ $languageAndRuntime.AddToolVersion("Swift", $(Get-SwiftVersion))
 $packageManagement = $installedSoftware.AddHeader("Package Management")
 #INTERACTIVE $packageManagement.AddToolVersion("cpan", $(Get-CpanVersion))
 $packageManagement.AddToolVersion("Helm", $(Get-HelmVersion))
-#NOSUP $packageManagement.AddToolVersion("Homebrew", $(Get-HomebrewVersion))
+$packageManagement.AddToolVersion("Homebrew", $(Get-HomebrewVersion))
 #LOW $packageManagement.AddToolVersion("Miniconda", $(Get-MinicondaVersion))
 $packageManagement.AddToolVersion("Npm", $(Get-NpmVersion))
 if (-not $(Test-IsUbuntu24)) {
@@ -73,12 +73,12 @@ $packageManagement.AddToolVersion("RubyGems", $(Get-GemVersion))
 $packageManagement.AddToolVersion("Vcpkg", $(Get-VcpkgVersion))
 $packageManagement.AddToolVersion("Yarn", $(Get-YarnVersion))
 $packageManagement.AddHeader("Environment variables").AddTable($(Build-PackageManagementEnvironmentTable))
-#NOSUP $packageManagement.AddHeader("Homebrew note").AddNote(@'
-#Location: /home/linuxbrew
-#Note: Homebrew is pre-installed on image but not added to PATH.
-#run the eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" command
-#to accomplish this.
-#'@)
+$packageManagement.AddHeader("Homebrew note").AddNote(@'
+Location: /home/linuxbrew
+Note: Homebrew is pre-installed on image but not added to PATH.
+run the eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" command
+to accomplish this.
+'@)
 
 # Project Management
 $projectManagement = $installedSoftware.AddHeader("Project Management")
