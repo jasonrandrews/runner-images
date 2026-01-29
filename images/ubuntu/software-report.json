@@ -1,16 +1,16 @@
 {
   "NodeType": "HeaderNode",
-  "Title": "Ubuntu 22.04",
+  "Title": "Ubuntu 24.04",
   "Children": [
     {
       "NodeType": "ToolVersionNode",
       "ToolName": "OS Version:",
-      "Version": "22.04.5 LTS"
+      "Version": "24.04.3 LTS"
     },
     {
       "NodeType": "ToolVersionNode",
       "ToolName": "Kernel Version:",
-      "Version": "6.8.0-1044-azure"
+      "Version": "6.14.0-1017-azure"
     },
     {
       "NodeType": "ToolVersionNode",
@@ -20,7 +20,7 @@
     {
       "NodeType": "ToolVersionNode",
       "ToolName": "Systemd version:",
-      "Version": "249.11-0ubuntu3.17"
+      "Version": "255.4-1ubuntu8.12"
     },
     {
       "NodeType": "HeaderNode",
@@ -33,14 +33,15 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Bash",
-              "Version": "5.1.16(1)-release"
+              "Version": "5.2.21(1)-release"
             },
             {
               "NodeType": "ToolVersionsListNode",
               "ToolName": "Clang",
               "Versions": [
-                "14.0.0",
-                "15.0.7"
+                "16.0.6",
+                "17.0.6",
+                "18.1.3"
               ],
               "MajorVersionRegex": "^\\d+",
               "ListType": "Inline"
@@ -49,8 +50,9 @@
               "NodeType": "ToolVersionsListNode",
               "ToolName": "Clang-format",
               "Versions": [
-                "14.0.0",
-                "15.0.7"
+                "16.0.6",
+                "17.0.6",
+                "18.1.3"
               ],
               "MajorVersionRegex": "^\\d+",
               "ListType": "Inline"
@@ -59,8 +61,9 @@
               "NodeType": "ToolVersionsListNode",
               "ToolName": "Clang-tidy",
               "Versions": [
-                "14.0.0",
-                "15.0.7"
+                "16.0.6",
+                "17.0.6",
+                "18.1.3"
               ],
               "MajorVersionRegex": "^\\d+",
               "ListType": "Inline"
@@ -68,16 +71,15 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Dash",
-              "Version": "0.5.11+git20210903+057cd650a4ed-3build1"
+              "Version": "0.5.12-6ubuntu5"
             },
             {
               "NodeType": "ToolVersionsListNode",
               "ToolName": "GNU C++",
               "Versions": [
-                "10.5.0",
-                "11.4.0",
-                "12.3.0",
-                "13.1.0"
+                "12.4.0",
+                "13.3.0",
+                "14.2.0"
               ],
               "MajorVersionRegex": "^\\d+",
               "ListType": "Inline"
@@ -86,9 +88,9 @@
               "NodeType": "ToolVersionsListNode",
               "ToolName": "GNU Fortran",
               "Versions": [
-                "10.5.0",
-                "11.4.0",
-                "12.3.0"
+                "12.4.0",
+                "13.3.0",
+                "14.2.0"
               ],
               "MajorVersionRegex": "^\\d+",
               "ListType": "Inline"
@@ -96,37 +98,27 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Kotlin",
-              "Version": "2.2.21-release-469"
-            },
-            {
-              "NodeType": "ToolVersionNode",
-              "ToolName": "Mono",
-              "Version": "6.12.0.200"
-            },
-            {
-              "NodeType": "ToolVersionNode",
-              "ToolName": "MSBuild",
-              "Version": "16.10.1.31701 (Mono 6.12.0.200)"
+              "Version": "2.3.0-release-356"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Node.js",
-              "Version": "20.19.6"
+              "Version": "20.20.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Perl",
-              "Version": "5.34.0"
+              "Version": "5.38.2"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Python",
-              "Version": "3.10.12"
+              "Version": "3.12.3"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Ruby",
-              "Version": "3.0.2p107"
+              "Version": "3.2.3"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -142,12 +134,12 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Helm",
-              "Version": "3.19.4"
+              "Version": "3.20.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Homebrew",
-              "Version": "5.0.5"
+              "Version": "5.0.12"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -156,18 +148,13 @@
             },
             {
               "NodeType": "ToolVersionNode",
-              "ToolName": "NuGet",
-              "Version": "6.6.1.2"
-            },
-            {
-              "NodeType": "ToolVersionNode",
               "ToolName": "Pip",
-              "Version": "22.0.2"
+              "Version": "24.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Pip3",
-              "Version": "22.0.2"
+              "Version": "24.0"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -177,12 +164,12 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "RubyGems",
-              "Version": "3.3.5"
+              "Version": "3.4.20"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Vcpkg",
-              "Version": "(build from commit 2b6a882f61)"
+              "Version": "(build from commit a2a478a93d)"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -218,7 +205,7 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Ant",
-              "Version": "1.10.12"
+              "Version": "1.10.14"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -233,7 +220,7 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Maven",
-              "Version": "3.9.11"
+              "Version": "3.9.12"
             }
           ]
         },
@@ -244,32 +231,27 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Ansible",
-              "Version": "2.17.14"
-            },
-            {
-              "NodeType": "ToolVersionNode",
-              "ToolName": "apt-fast",
-              "Version": "1.10.0"
+              "Version": "2.20.1"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "AzCopy",
-              "Version": "10.31.0 - available by `azcopy` and `azcopy10` aliases"
+              "Version": "10.31.1 - available by `azcopy` and `azcopy10` aliases"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Bazel",
-              "Version": "8.5.0"
+              "Version": "9.0.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Bazelisk",
-              "Version": "1.26.0"
+              "Version": "1.28.1"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Buildah",
-              "Version": "1.23.1"
+              "Version": "1.33.7"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -289,7 +271,7 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Docker-Buildx",
-              "Version": "0.30.1"
+              "Version": "0.31.0"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -324,17 +306,17 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "jq",
-              "Version": "1.6"
+              "Version": "1.7"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Kind",
-              "Version": "0.30.0"
+              "Version": "0.31.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Kubectl",
-              "Version": "1.34.3"
+              "Version": "1.35.0"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -344,7 +326,7 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "OpenSSL",
-              "Version": "3.0.2-0ubuntu1.20"
+              "Version": "3.0.13-0ubuntu3.7"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -354,32 +336,22 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Podman",
-              "Version": "3.4.4"
+              "Version": "4.9.3"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Pulumi",
-              "Version": "3.212.0"
+              "Version": "3.217.1"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Skopeo",
-              "Version": "1.4.1"
-            },
-            {
-              "NodeType": "ToolVersionNode",
-              "ToolName": "SVN",
-              "Version": "1.14.1"
-            },
-            {
-              "NodeType": "ToolVersionNode",
-              "ToolName": "Terraform",
-              "Version": "1.14.2"
+              "Version": "1.13.3"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "yamllint",
-              "Version": "1.37.1"
+              "Version": "1.38.0"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -405,7 +377,7 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "AWS CLI",
-              "Version": "2.32.17"
+              "Version": "2.33.8"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -415,12 +387,12 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "AWS SAM CLI",
-              "Version": "1.150.1"
+              "Version": "1.152.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Azure CLI",
-              "Version": "2.81.0"
+              "Version": "2.82.0"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -430,17 +402,12 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "GitHub CLI",
-              "Version": "2.83.2"
+              "Version": "2.86.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Google Cloud CLI",
-              "Version": "549.0.1"
-            },
-            {
-              "NodeType": "ToolVersionNode",
-              "ToolName": "Vercel CLI",
-              "Version": "50.1.0"
+              "Version": "554.0.0"
             }
           ]
         },
@@ -452,8 +419,8 @@
             "Headers": "Version|Environment Variable",
             "Rows": [
               "8.0.472+8|JAVA_HOME_8_X64",
-              "11.0.29+7 (default)|JAVA_HOME_11_X64",
-              "17.0.17+10|JAVA_HOME_17_X64",
+              "11.0.29+7|JAVA_HOME_11_X64",
+              "17.0.17+10 (default)|JAVA_HOME_17_X64",
               "21.0.9+10|JAVA_HOME_21_X64",
               "25.0.1+8|JAVA_HOME_25_X64"
             ]
@@ -467,7 +434,7 @@
               "NodeType": "ToolVersionsListNode",
               "ToolName": "PHP",
               "Versions": [
-                "8.1.33"
+                "8.3.30"
               ],
               "MajorVersionRegex": "^\\d+\\.\\d+",
               "ListType": "Inline"
@@ -475,12 +442,12 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Composer",
-              "Version": "2.9.2"
+              "Version": "2.9.4"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "PHPUnit",
-              "Version": "8.5.50"
+              "Version": "8.5.52"
             },
             {
               "NodeType": "NoteNode",
@@ -495,17 +462,17 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Cargo",
-              "Version": "1.92.0"
+              "Version": "1.93.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Rust",
-              "Version": "1.92.0"
+              "Version": "1.93.0"
             },
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "Rustdoc",
-              "Version": "1.92.0"
+              "Version": "1.93.0"
             },
             {
               "NodeType": "ToolVersionNode",
@@ -515,38 +482,11 @@
             {
               "NodeType": "HeaderNode",
               "Title": "Packages",
-              "Children": [
-                {
-                  "NodeType": "ToolVersionNode",
-                  "ToolName": "Bindgen",
-                  "Version": "0.72.1"
-                },
-                {
-                  "NodeType": "ToolVersionNode",
-                  "ToolName": "Cargo audit",
-                  "Version": "0.22.0"
-                },
-                {
-                  "NodeType": "ToolVersionNode",
-                  "ToolName": "Cargo clippy",
-                  "Version": "0.1.92"
-                },
-                {
-                  "NodeType": "ToolVersionNode",
-                  "ToolName": "Cargo outdated",
-                  "Version": "0.17.0"
-                },
-                {
-                  "NodeType": "ToolVersionNode",
-                  "ToolName": "Cbindgen",
-                  "Version": "0.29.2"
-                },
-                {
-                  "NodeType": "ToolVersionNode",
-                  "ToolName": "Rustfmt",
-                  "Version": "1.8.0"
-                }
-              ]
+              "Children": {
+                "NodeType": "ToolVersionNode",
+                "ToolName": "Rustfmt",
+                "Version": "1.8.0"
+              }
             }
           ]
         },
@@ -558,14 +498,14 @@
               "NodeType": "ToolVersionsListNode",
               "ToolName": ".NET Core SDK",
               "Versions": [
-                "8.0.122",
+                "8.0.123",
                 "8.0.206",
                 "8.0.319",
-                "8.0.416",
-                "9.0.112",
+                "8.0.417",
+                "9.0.113",
                 "9.0.205",
-                "9.0.308",
-                "10.0.101"
+                "9.0.310",
+                "10.0.102"
               ],
               "MajorVersionRegex": "^\\d+\\.\\d+\\.\\d",
               "ListType": "Inline"
@@ -584,7 +524,7 @@
             {
               "NodeType": "ToolVersionNode",
               "ToolName": "sqlite3",
-              "Version": "3.37.2"
+              "Version": "3.45.1"
             },
             {
               "NodeType": "HeaderNode",
@@ -593,7 +533,7 @@
                 {
                   "NodeType": "ToolVersionNode",
                   "ToolName": "MySQL",
-                  "Version": "8.0.44-0ubuntu0.22.04.2"
+                  "Version": "8.0.44-0ubuntu0.24.04.2"
                 },
                 {
                   "NodeType": "NoteNode",
@@ -620,25 +560,16 @@
                   "NodeType": "ToolVersionsListNode",
                   "ToolName": "Az",
                   "Versions": [
-                    "12.5.0"
+                    "14.6.0"
                   ],
                   "MajorVersionRegex": "^\\d+\\.\\d+",
                   "ListType": "Inline"
                 },
                 {
                   "NodeType": "ToolVersionsListNode",
-                  "ToolName": "MarkdownPS",
-                  "Versions": [
-                    "1.10"
-                  ],
-                  "MajorVersionRegex": "^\\d+",
-                  "ListType": "Inline"
-                },
-                {
-                  "NodeType": "ToolVersionsListNode",
                   "ToolName": "Microsoft.Graph",
                   "Versions": [
-                    "2.33.0"
+                    "2.34.0"
                   ],
                   "MajorVersionRegex": "^\\d+",
                   "ListType": "Inline"
@@ -667,128 +598,86 @@
         },
         {
           "NodeType": "HeaderNode",
-          "Title": "Cached Docker images",
-          "Children": {
-            "NodeType": "TableNode",
-            "Headers": "Repository:Tag|Digest|Created",
-            "Rows": [
-              "alpine:3.16|sha256:452e7292acee0ee16c332324d7de05fa2c99f9994ecc9f0779c602916a672ae4 |2024-01-26",
-              "alpine:3.17|sha256:8fc3dacfb6d69da8d44e42390de777e48577085db99aa4e4af35f483eb08b989 |2024-09-06",
-              "alpine:3.18|sha256:de0eb0b3f2a47ba1eb89389859a9bd88b28e82f5826b6969ad604979713c2d4f |2025-02-14",
-              "alpine:3.19|sha256:6baf43584bcb78f2e5847d1de515f23499913ac9f12bdf834811a3145eb11ca1 |2025-10-08",
-              "debian:10|sha256:58ce6f1271ae1c8a2006ff7d3e54e9874d839f573d8009c20154ad0f2fb0a225 |2024-06-13",
-              "debian:11|sha256:1b1fd1445c1d0ed68123cf76c2d7c7cb47dfdab3df56f7ff9303063110d43291 |2025-12-08",
-              "moby/buildkit:latest|sha256:de10faf919fc71ba4eb1dd7bd6449566d012b0c9436b1c61bfee21d621b009aa |2025-11-20",
-              "node:18|sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783 |2025-03-27",
-              "node:18-alpine|sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e |2025-03-27",
-              "node:20|sha256:4b4e58e59c5e042928790c6fccd8ad16da6296bcc2e9924c56fba84a8e5ff662 |2025-12-09",
-              "node:20-alpine|sha256:643e7036aa985317ebfee460005e322aa550c6b6883000d01daefb58689a58e2 |2025-12-04",
-              "node:22|sha256:c8abd8da9cfddd2dfd2d5aa9ea2e54f9f70d3968ecf81bf5c2422594fa13fa83 |2025-12-09",
-              "node:22-alpine|sha256:9632533eda8061fc1e9960cfb3f8762781c07a00ee7317f5dc0e13c05e15166f |2025-12-04",
-              "ubuntu:20.04|sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214 |2025-04-08",
-              "ubuntu:22.04|sha256:104ae83764a5119017b8e8d6218fa0832b09df65aae7d5a6de29a85d813da2fb |2025-10-13"
-            ]
-          }
-        },
-        {
-          "NodeType": "HeaderNode",
           "Title": "Installed apt packages",
           "Children": {
             "NodeType": "TableNode",
             "Headers": "Name|Version",
             "Rows": [
-              "acl|2.3.1-1",
-              "aria2|1.36.0-1",
-              "autoconf|2.71-2",
-              "automake|1:1.16.5-1.3",
-              "binutils|2.38-4ubuntu2.12",
-              "bison|2:3.8.2+dfsg-1build1",
-              "brotli|1.0.9-2build6",
-              "bzip2|1.0.8-5build1",
-              "coreutils|8.32-4.1ubuntu1.2",
-              "curl|7.81.0-1ubuntu1.21",
-              "dbus|1.12.20-2ubuntu4.1",
-              "dnsutils|1:9.18.39-0ubuntu0.22.04.2",
-              "dpkg|1.21.1ubuntu2.6",
-              "dpkg-dev|1.21.1ubuntu2.6",
-              "fakeroot|1.28-1ubuntu1",
-              "file|1:5.41-3ubuntu0.1",
-              "findutils|4.8.0-1ubuntu3",
-              "flex|2.6.4-8build2",
-              "fonts-noto-color-emoji|2.047-0ubuntu0.22.04.1",
-              "ftp|20210827-4build1",
-              "g++|4:11.2.0-1ubuntu1",
-              "gcc|4:11.2.0-1ubuntu1",
-              "gnupg2|2.2.27-3ubuntu2.4",
-              "golang-go|2:1.18\\~0ubuntu2",
-              "haveged|1.9.14-1ubuntu1",
-              "imagemagick|8:6.9.11.60+dfsg-1.3ubuntu0.22.04.5",
-              "iproute2|5.15.0-1ubuntu2",
-              "iputils-ping|3:20211215-1ubuntu0.1",
-              "jq|1.6-2.1ubuntu3.1",
-              "libc++-dev|1:14.0-55\\~exp2",
-              "libc++abi-dev|1:14.0-55\\~exp2",
-              "libc6-dev|2.35-0ubuntu3.11",
-              "libcurl4|7.81.0-1ubuntu1.21",
-              "libgbm-dev|23.2.1-1ubuntu3.1\\~22.04.3",
-              "libgconf-2-4|3.2.6-7ubuntu2",
-              "libgsl-dev|2.7.1+dfsg-3",
-              "libgtk-3-0|3.24.33-1ubuntu2.2",
-              "libmagic-dev|1:5.41-3ubuntu0.1",
-              "libmagickcore-dev|8:6.9.11.60+dfsg-1.3ubuntu0.22.04.5",
-              "libmagickwand-dev|8:6.9.11.60+dfsg-1.3ubuntu0.22.04.5",
-              "libnss3-tools|2:3.98-0ubuntu0.22.04.2",
-              "libsecret-1-dev|0.20.5-2",
-              "libsqlite3-dev|3.37.2-2ubuntu0.5",
-              "libssl-dev|3.0.2-0ubuntu1.20",
-              "libtool|2.4.6-15build2",
-              "libunwind8|1.3.2-2build2.1",
-              "libxkbfile-dev|1:1.1.0-1build3",
-              "libxss1|1:1.2.3-1build2",
-              "libyaml-dev|0.2.2-1build2",
-              "locales|2.35-0ubuntu3.11",
-              "lz4|1.9.3-2build2",
-              "m4|1.4.18-5ubuntu2",
-              "make|4.3-4.1build1",
-              "mediainfo|22.03-1",
-              "mercurial|6.1.1-1ubuntu1",
-              "net-tools|1.60+git20181103.0eebece-1ubuntu5.4",
-              "netcat|1.218-4ubuntu1",
-              "openssh-client|1:8.9p1-3ubuntu0.13",
-              "p7zip-full|16.02+dfsg-8",
-              "p7zip-rar|16.02-3build1",
-              "parallel|20210822+ds-2",
-              "pass|1.7.4-5",
-              "patchelf|0.14.3-1",
-              "pigz|2.6-1",
-              "pkg-config|0.29.2-1ubuntu3",
-              "pollinate|4.33-3ubuntu2.1",
-              "python-is-python3|3.9.2-2",
-              "rpm|4.17.0+dfsg1-4build1",
-              "rsync|3.2.7-0ubuntu0.22.04.4",
-              "shellcheck|0.8.0-2",
-              "sphinxsearch|2.2.11-8",
-              "sqlite3|3.37.2-2ubuntu0.5",
-              "ssh|1:8.9p1-3ubuntu0.13",
+              "acl|2.3.2-1build1.1",
+              "aria2|1.37.0+debian-1build3",
+              "autoconf|2.71-3",
+              "automake|1:1.16.5-1.3ubuntu1",
+              "binutils|2.42-4ubuntu2.8",
+              "bison|2:3.8.2+dfsg-1build2",
+              "brotli|1.1.0-2build2",
+              "bzip2|1.0.8-5.1build0.1",
+              "coreutils|9.4-3ubuntu6.1",
+              "curl|8.5.0-2ubuntu10.6",
+              "dbus|1.14.10-4ubuntu4.1",
+              "dnsutils|1:9.18.39-0ubuntu0.24.04.2",
+              "dpkg|1.22.6ubuntu6.5",
+              "dpkg-dev|1.22.6ubuntu6.5",
+              "fakeroot|1.33-1",
+              "file|1:5.45-3build1",
+              "findutils|4.9.0-5build1",
+              "flex|2.6.4-8.2build1",
+              "fonts-noto-color-emoji|2.047-0ubuntu0.24.04.1",
+              "ftp|20230507-2build3",
+              "g++|4:13.2.0-7ubuntu1",
+              "gcc|4:13.2.0-7ubuntu1",
+              "gnupg2|2.4.4-2ubuntu17.4",
+              "golang-go|2:1.22\\~2build1",
+              "haveged|1.9.14-1ubuntu2",
+              "iproute2|6.1.0-1ubuntu6.2",
+              "iputils-ping|3:20240117-1ubuntu0.1",
+              "jq|1.7.1-3ubuntu0.24.04.1",
+              "libgbm-dev|25.0.7-0ubuntu0.24.04.2",
+              "libnss3-tools|2:3.98-1build1",
+              "libsqlite3-dev|3.45.1-1ubuntu2.5",
+              "libssl-dev|3.0.13-0ubuntu3.7",
+              "libtool|2.4.7-7build1",
+              "libyaml-dev|0.2.5-1build1",
+              "locales|2.39-0ubuntu8.6",
+              "lz4|1.9.4-1build1.1",
+              "m4|1.4.19-4build1",
+              "make|4.3-4.1build2",
+              "mediainfo|24.01.1-1build2",
+              "mercurial|6.7.2-1ubuntu2.2",
+              "net-tools|2.10-0.1ubuntu4.4",
+              "netcat|1.226-1ubuntu2",
+              "openssh-client|1:9.6p1-3ubuntu13.14",
+              "p7zip-full|16.02+transitional.1",
+              "p7zip-rar|16.02+transitional.1",
+              "parallel|20231122+ds-1",
+              "patchelf|0.18.0-1.1build1",
+              "pigz|2.8-1",
+              "pkg-config|1.8.1-2build1",
+              "pollinate|4.33-3.1ubuntu1.1",
+              "python-is-python3|3.11.4-1",
+              "rpm|4.18.2+dfsg-2.1build2",
+              "rsync|3.2.7-1ubuntu1.2",
+              "shellcheck|0.9.0-1",
+              "sphinxsearch|2.2.11-8build1",
+              "sqlite3|3.45.1-1ubuntu2.5",
+              "ssh|1:9.6p1-3ubuntu13.14",
               "sshpass|1.09-1",
-              "subversion|1.14.1-3ubuntu0.22.04.1",
-              "sudo|1.9.9-1ubuntu2.5",
-              "swig|4.0.2-1ubuntu1",
-              "systemd-coredump|249.11-0ubuntu3.17",
-              "tar|1.34+dfsg-1ubuntu0.1.22.04.2",
-              "telnet|0.17-44build1",
-              "texinfo|6.8-4build1",
-              "time|1.9-0.1build2",
-              "tk|8.6.11+1build2",
-              "tzdata|2025b-0ubuntu0.22.04.1",
-              "unzip|6.0-26ubuntu3.2",
-              "upx|3.96-3",
-              "wget|1.21.2-2ubuntu1.1",
-              "xorriso|1.5.4-2",
-              "xvfb|2:21.1.4-2ubuntu1.7\\~22.04.16",
-              "xz-utils|5.2.5-2ubuntu1",
-              "zip|3.0-12build2",
-              "zsync|0.6.2-3ubuntu1"
+              "sudo|1.9.15p5-3ubuntu5.24.04.1",
+              "swig|4.2.0-2ubuntu1",
+              "systemd-coredump|255.4-1ubuntu8.12",
+              "tar|1.35+dfsg-3build1",
+              "telnet|0.17+2.5-3ubuntu4",
+              "texinfo|7.1-3build2",
+              "time|1.9-0.2build1",
+              "tk|8.6.14build1",
+              "tree|2.1.1-2ubuntu3.24.04.2",
+              "tzdata|2025b-0ubuntu0.24.04.1",
+              "unzip|6.0-28ubuntu4.1",
+              "upx|4.2.2-3",
+              "wget|1.21.4-1ubuntu4.1",
+              "xvfb|2:21.1.12-1ubuntu1.5",
+              "xz-utils|5.6.1+really5.4.5-1ubuntu0.2",
+              "zip|3.0-13ubuntu0.2",
+              "zsync|0.6.2-5build1"
             ]
           }
         }
