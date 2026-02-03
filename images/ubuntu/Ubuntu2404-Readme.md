@@ -29,7 +29,7 @@
 - Pip3 24.0
 - Pipx 1.8.0
 - RubyGems 3.4.20
-- Vcpkg (build from commit a2a478a93d)
+- Vcpkg (build from commit 40c89449f0)
 - Yarn 1.22.22
 
 #### Environment variables
@@ -61,7 +61,7 @@ to accomplish this.
 - CMake 3.31.6
 - Docker Amazon ECR Credential Helper 0.11.0
 - Docker Compose v2 2.38.2
-- Docker-Buildx 0.31.0
+- Docker-Buildx 0.31.1
 - Docker Client 28.0.4
 - Docker Server 28.0.4
 - Git 2.52.0
@@ -75,7 +75,7 @@ to accomplish this.
 - OpenSSL 3.0.13-0ubuntu3.7
 - Packer 1.14.3
 - Podman 4.9.3
-- Pulumi 3.217.1
+- Pulumi 3.218.0
 - Skopeo 1.13.3
 - yamllint 1.38.0
 - yq 4.50.1
@@ -83,26 +83,26 @@ to accomplish this.
 - Ninja 1.12.1
 
 ### CLI Tools
-- AWS CLI 2.33.8
+- AWS CLI 2.33.10
 - AWS CLI Session Manager Plugin 1.2.764.0
-- AWS SAM CLI 1.152.0
+- AWS SAM CLI 1.153.1
 - Azure CLI 2.82.0
 - Azure CLI (azure-devops) 1.0.2
 - GitHub CLI 2.86.0
 - Google Cloud CLI 554.0.0
 
 ### Java
-| Version              | Environment Variable |
-| -------------------- | -------------------- |
-| 8.0.472+8            | JAVA_HOME_8_X64      |
-| 11.0.29+7            | JAVA_HOME_11_X64     |
-| 17.0.17+10 (default) | JAVA_HOME_17_X64     |
-| 21.0.9+10            | JAVA_HOME_21_X64     |
-| 25.0.1+8             | JAVA_HOME_25_X64     |
+| Version             | Environment Variable |
+| ------------------- | -------------------- |
+| 8.0.472+8           | JAVA_HOME_8_X64      |
+| 11.0.29+7           | JAVA_HOME_11_X64     |
+| 17.0.18+8 (default) | JAVA_HOME_17_X64     |
+| 21.0.10+7           | JAVA_HOME_21_X64     |
+| 25.0.2+10           | JAVA_HOME_25_X64     |
 
 ### PHP Tools
 - PHP: 8.3.30
-- Composer 2.9.4
+- Composer 2.9.5
 - PHPUnit 8.5.52
 ```
 Both Xdebug and PCOV extensions are installed, but only Xdebug is enabled.
