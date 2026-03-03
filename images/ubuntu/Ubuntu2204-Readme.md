@@ -14,25 +14,25 @@
 - Dash 0.5.11+git20210903+057cd650a4ed-3build1
 - GNU C++: 10.5.0, 11.4.0, 12.3.0
 - GNU Fortran: 10.5.0, 11.4.0, 12.3.0
-- Kotlin 2.3.0-release-356
+- Kotlin 2.3.10-release-465
 - Mono 6.12.0.200
 - MSBuild 16.10.1.31701 (Mono 6.12.0.200)
 - Node.js 20.20.0
 - Perl 5.34.0
 - Python 3.10.12
 - Ruby 3.0.2p107
-- Swift 6.2.3
+- Swift 6.2.4
 
 ### Package Management
 - Helm 3.20.0
-- Homebrew 5.0.12
+- Homebrew 5.0.16
 - Npm 10.8.2
 - NuGet 6.6.1.2
 - Pip 22.0.2
 - Pip3 22.0.2
 - Pipx 1.8.0
 - RubyGems 3.3.5
-- Vcpkg (build from commit 40c89449f0)
+- Vcpkg (build from commit cae8f584b1)
 - Yarn 1.22.22
 
 #### Environment variables
@@ -52,63 +52,63 @@ to accomplish this.
 ### Project Management
 - Ant 1.10.12
 - Gradle 4.4.1
-- Lerna 9.0.3
+- Lerna 9.0.5
 - Maven 3.9.12
 
 ### Tools
 - Ansible 2.17.14
 - apt-fast 1.10.0
-- AzCopy 10.31.1 - available by `azcopy` and `azcopy10` aliases
+- AzCopy 10.32.1 - available by `azcopy` and `azcopy10` aliases
 - Bazel 9.0.0
 - Bazelisk 1.28.1
 - Buildah 1.23.1
 - CMake 3.31.6
-- Docker Amazon ECR Credential Helper 0.11.0
+- Docker Amazon ECR Credential Helper 0.12.0
 - Docker Compose v2 2.38.2
 - Docker-Buildx 0.31.1
 - Docker Client 28.0.4
 - Docker Server 28.0.4
-- Git 2.52.0
+- Git 2.53.0
 - Git LFS 3.7.1
 - Git-ftp 1.6.0
 - Haveged 1.9.14
 - jq 1.6
 - Kind 0.31.0
-- Kubectl 1.35.0
-- Kustomize 5.8.0
-- OpenSSL 3.0.2-0ubuntu1.20
-- Packer 1.14.3
+- Kubectl 1.35.2
+- Kustomize 5.8.1
+- OpenSSL 3.0.2-0ubuntu1.21
+- Packer 1.15.0
 - Podman 3.4.4
-- Pulumi 3.218.0
+- Pulumi 3.224.0
 - Skopeo 1.4.1
 - SVN 1.14.1
-- Terraform 1.14.4
+- Terraform 1.14.6
 - yamllint 1.38.0
-- yq 4.50.1
+- yq 4.52.4
 - zstd 1.5.7
-- Ninja 1.12.1
+- Ninja 1.13.2
 
 ### CLI Tools
-- AWS CLI 2.33.10
-- AWS CLI Session Manager Plugin 1.2.764.0
-- AWS SAM CLI 1.153.1
-- Azure CLI 2.82.0
+- AWS CLI 2.34.0
+- AWS CLI Session Manager Plugin 1.2.779.0
+- AWS SAM CLI 1.154.0
+- Azure CLI 2.84.0
 - Azure CLI (azure-devops) 1.0.2
-- GitHub CLI 2.86.0
-- Google Cloud CLI 554.0.0
-- Vercel CLI 50.9.3
+- GitHub CLI 2.87.3
+- Google Cloud CLI 559.0.0
+- Vercel CLI 50.25.6
 
 ### Java
 | Version             | Environment Variable |
 | ------------------- | -------------------- |
-| 8.0.472+8           | JAVA_HOME_8_X64      |
-| 11.0.29+7 (default) | JAVA_HOME_11_X64     |
+| 8.0.482+8           | JAVA_HOME_8_X64      |
+| 11.0.30+7 (default) | JAVA_HOME_11_X64     |
 | 17.0.18+8           | JAVA_HOME_17_X64     |
 | 21.0.10+7           | JAVA_HOME_21_X64     |
 | 25.0.2+10           | JAVA_HOME_25_X64     |
 
 ### PHP Tools
-- PHP: 8.1.34
+- PHP: 8.1.2
 - Composer 2.9.5
 - PHPUnit 8.5.52
 ```
@@ -116,28 +116,28 @@ Both Xdebug and PCOV extensions are installed, but only Xdebug is enabled.
 ```
 
 ### Rust Tools
-- Cargo 1.93.0
-- Rust 1.93.0
-- Rustdoc 1.93.0
+- Cargo 1.93.1
+- Rust 1.93.1
+- Rustdoc 1.93.1
 - Rustup 1.28.2
 
 #### Packages
 - Bindgen 0.72.1
-- Cargo audit 0.22.0
+- Cargo audit 0.22.1
 - Cargo clippy 0.1.93
 - Cargo outdated 0.17.0
 - Cbindgen 0.29.2
 - Rustfmt 1.8.0
 
 ### .NET Tools
-- .NET Core SDK: 8.0.123, 8.0.206, 8.0.319, 8.0.417, 9.0.113, 9.0.205, 9.0.310, 10.0.102
+- .NET Core SDK: 8.0.124, 8.0.206, 8.0.319, 8.0.418, 9.0.114, 9.0.205, 9.0.311, 10.0.102
 - nbgv 3.9.50+6feeb89450
 
 ### Databases
 - sqlite3 3.37.2
 
 #### MySQL
-- MySQL 8.0.44-0ubuntu0.22.04.2
+- MySQL 8.0.45-0ubuntu0.22.04.1
 ```
 User: root
 Password: root
@@ -151,7 +151,7 @@ Use the following command as a part of your job to start the service: 'sudo syst
 #### PowerShell Modules
 - Az: 14.6.0
 - MarkdownPS: 1.10
-- Microsoft.Graph: 2.34.0
+- Microsoft.Graph: 2.35.1
 - Pester: 5.7.1
 - PSScriptAnalyzer: 1.24.0
 
@@ -167,7 +167,7 @@ Use the following command as a part of your job to start the service: 'sudo syst
 | brotli                 | 1.0.9-2build6                       |
 | bzip2                  | 1.0.8-5build1                       |
 | coreutils              | 8.32-4.1ubuntu1.2                   |
-| curl                   | 7.81.0-1ubuntu1.21                  |
+| curl                   | 7.81.0-1ubuntu1.22                  |
 | dbus                   | 1.12.20-2ubuntu4.1                  |
 | dnsutils               | 1:9.18.39-0ubuntu0.22.04.2          |
 | dpkg                   | 1.21.1ubuntu2.6                     |
@@ -189,8 +189,8 @@ Use the following command as a part of your job to start the service: 'sudo syst
 | jq                     | 1.6-2.1ubuntu3.1                    |
 | libc++-dev             | 1:14.0-55\~exp2                     |
 | libc++abi-dev          | 1:14.0-55\~exp2                     |
-| libc6-dev              | 2.35-0ubuntu3.12                    |
-| libcurl4               | 7.81.0-1ubuntu1.21                  |
+| libc6-dev              | 2.35-0ubuntu3.13                    |
+| libcurl4               | 7.81.0-1ubuntu1.22                  |
 | libgbm-dev             | 23.2.1-1ubuntu3.1\~22.04.3          |
 | libgconf-2-4           | 3.2.6-7ubuntu2                      |
 | libgsl-dev             | 2.7.1+dfsg-3                        |
@@ -207,7 +207,7 @@ Use the following command as a part of your job to start the service: 'sudo syst
 | libxkbfile-dev         | 1:1.1.0-1build3                     |
 | libxss1                | 1:1.2.3-1build2                     |
 | libyaml-dev            | 0.2.2-1build2                       |
-| locales                | 2.35-0ubuntu3.12                    |
+| locales                | 2.35-0ubuntu3.13                    |
 | lz4                    | 1.9.3-2build2                       |
 | m4                     | 1.4.18-5ubuntu2                     |
 | make                   | 4.3-4.1build1                       |

@@ -8,7 +8,8 @@
 source $HELPER_SCRIPTS/install.sh
 
 # Install ninja
-download_url=$(resolve_github_release_asset_url "ninja-build/ninja" "endswith(\"ninja-linux-aarch64.zip\")" "1.12.1")
+#download_url=$(resolve_github_release_asset_url "ninja-build/ninja" "endswith(\"ninja-linux-aarch64.zip\")" "1.13.2")
+download_url=$(resolve_github_release_asset_url "ninja-build/ninja" "endswith(\"ninja-linux-aarch64.zip\")" "latest")
 ninja_binary_path=$(download_with_retry "${download_url}")
 
 # Unzip the ninja binary
